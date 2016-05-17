@@ -45,11 +45,11 @@
 						<div class="login-container">
 							<div class="center">
 								<h1>
-									<img src="/resources/img/project_green_32_32.png"></img>
+									<!--img src="/resources/img/project_green_32_32.png"></img-->
 									<span class="red"></span>
-									<span class="gray" id="id-text2">项目管理系统</span>
+									<span class="gray" id="id-text2">设备资源管理系统</span>
 								</h1>
-								<h4 class="blue" id="id-company-text">&copy; 北京中科软件有限公司</h4>
+								<h4 class="blue" id="id-company-text">&copy; 电力电子技术研究所</h4>
 							</div>
 
 							<div class="space-6"></div>
@@ -103,10 +103,10 @@
 
 										<div class="toolbar clearfix">
 											<div>
-												<a href="#" data-target="#forgot-box" class="forgot-password-link">
+												<!--a href="#" data-target="#forgot-box" class="forgot-password-link">
 													<i class="ace-icon fa fa-arrow-left"></i>
 													忘记密码
-												</a>
+												</a-->
 											</div>
 
 											<div>
@@ -237,7 +237,7 @@
 								</div><!-- /.signup-box -->
 							</div><!-- /.position-relative -->
 
-							<div class="navbar-fixed-top align-right">
+							<!--div class="navbar-fixed-top align-right">
 								<br />
 								&nbsp;
 								<a id="btn-login-dark" href="#">Dark</a>
@@ -250,7 +250,7 @@
 								&nbsp;
 								<a id="btn-login-light" href="#">Light</a>
 								&nbsp; &nbsp; &nbsp;
-							</div>
+							</div-->
 						</div>
 					</div><!-- /.col -->
 				</div><!-- /.row -->

@@ -5,10 +5,8 @@ import org.apache.shiro.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import com.stock.auth.AuthException;
 import com.stock.auth.AuthService;
 import com.stock.auth.LoginVO;
@@ -21,13 +19,38 @@ public class WebController {
 	private AuthService authService;
 	
 	@RequestMapping(value = "/")
-	public String home(Model model) {
-		return "demo";
+	public String index(Model model) {
+		return "index";
 	}
 
 	@RequestMapping(value = "/stock")
-	public String activities(Model model) {
-		return "demo";
+	public String home(Model model) {
+		return "index";
+	}
+	
+	@RequestMapping(value = "/stock/register")
+	public String register(Model model) {
+		return "register";
+	}
+	
+	@RequestMapping(value = "/stock/search")
+	public String search(Model model) {
+		return "search";
+	}
+	
+	@RequestMapping(value = "/stock/user")
+	public String user(Model model) {
+		return "user";
+	}
+	
+	@RequestMapping(value = "/stock/permission")
+	public String permission(Model model) {
+		return "permission";
+	}
+	
+	@RequestMapping(value = "/stock/base")
+	public String base(Model model) {
+		return "base";
 	}
 
 	@RequestMapping(value = "/stock/login", method = RequestMethod.GET)
@@ -61,13 +84,7 @@ public class WebController {
 
 	@RequestMapping(value = "/stock/error")
 	public String error(Model model) {
-		return "error-404";
-	}
-
-	@RequestMapping(value = "/stock/registration/{activities_id}")
-	public String registration(@PathVariable String activities_id, Model model) {
-		model.addAttribute("activities_id", activities_id);
-		return "registration";
+		return "error";
 	}
 
 }

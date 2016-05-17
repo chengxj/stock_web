@@ -18,13 +18,13 @@
 
 				<div class="sidebar-shortcuts" id="sidebar-shortcuts">
 					<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-						<button class="btn btn-success">
-							<i class="ace-icon fa fa-signal"></i>
-						</button>
-
 						<button class="btn btn-info">
 							<i class="ace-icon fa fa-pencil"></i>
 						</button>
+						
+						<button class="btn btn-success">
+							<i class="ace-icon fa fa-search"></i>
+						</button>						
 
 						<!-- #section:basics/sidebar.layout.shortcuts -->
 						<button class="btn btn-warning">
@@ -68,25 +68,13 @@
 					<ul class="breadcrumb">
 						<li>
 							<i class="ace-icon fa fa-home home-icon"></i>
-							<a href="#">Home</a>
-						</li>
-
-						<li>
-							<a href="#">Other Pages</a>
+							<a href="#">主页</a>
 						</li>
 						
-						<li class="active">Blank Page</li>
+						<li class="active">资产检索</li>
 						
 					</ul><!-- /.breadcrumb -->
 
-					<!-- #section:basics/content.searchbox -->
-					<div class="nav-search" style="top:5px;">
-						<button class="btn btn-custom btn-primary">增&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;加</button>&nbsp;
-						<button class="btn btn-custom btn-primary">修&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;改</button>&nbsp;
-						<button class="btn btn-custom btn-primary">保&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;存</button>&nbsp;
-						<button class="btn btn-custom btn-primary">删&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;除</button>
-					</div>
-					<!-- /section:basics/content.searchbox -->
 					
 				</div>
 
