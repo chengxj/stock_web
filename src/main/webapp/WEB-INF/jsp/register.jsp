@@ -99,10 +99,16 @@
 								<form class="form-horizontal" role="form">
 									<!-- #section:elements.form -->
 									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Text Field </label>
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
 
-										<div class="col-sm-9">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5" />
+										<div class="col-sm-5">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+										<div class="col-sm-5">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
 										</div>
 									</div>
 
