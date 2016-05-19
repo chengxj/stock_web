@@ -1,14 +1,11 @@
 package com.stock.dao;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.stock.entity.Activities;
 import com.stock.entity.Registration;
 import com.stock.entity.common.User;
@@ -22,31 +19,26 @@ public class SearchDao {
 
 	private static int pageSize = 10;
 
-
 	/**
 	 * 
 	 * @param id
 	 * @return
 	 */
 	public Activities getActivitiesById(long id) {
-		 String hql = "from Activities where id = :uuid";
-		 return entityManager.createQuery(hql, Activities.class)
-				 .setParameter("uuid", id)
-				 .getSingleResult();
+		String hql = "from Activities where id = :uuid";
+		return entityManager.createQuery(hql, Activities.class).setParameter("uuid", id).getSingleResult();
 	}
-	
+
 	/**
 	 * 
 	 * @param id
 	 * @return
 	 */
 	public User getUserByUid(String userid) {
-		 String hql = "from User where userid = :userid";
-		 return entityManager.createQuery(hql, User.class)
-				 .setParameter("userid", userid)
-				 .getSingleResult();
+		String hql = "from User where userid = :userid";
+		return entityManager.createQuery(hql, User.class).setParameter("userid", userid).getSingleResult();
 	}
-	
+
 	/**
 	 * 
 	 * @param activities_id
@@ -57,7 +49,7 @@ public class SearchDao {
 		return entityManager.createQuery(hql, Registration.class).setParameter("activities_id", activities_id)
 				.getResultList();
 	}
-	
+
 	/**
 	 * 
 	 * @param uuid
@@ -65,13 +57,11 @@ public class SearchDao {
 	 * @return
 	 */
 	public Registration getRegistrationById(long uuid, long activities_id) {
-		 String hql = "from Registration where id = :uuid and activities_id = :activities_id";
-		 return entityManager.createQuery(hql, Registration.class)
-				 .setParameter("uuid", uuid)
-				 .setParameter("activities_id", activities_id)
-				 .getSingleResult();
+		String hql = "from Registration where id = :uuid and activities_id = :activities_id";
+		return entityManager.createQuery(hql, Registration.class).setParameter("uuid", uuid)
+				.setParameter("activities_id", activities_id).getSingleResult();
 	}
-	
+
 	/**
 	 * 
 	 * @param request
@@ -84,9 +74,7 @@ public class SearchDao {
 		} else {
 			hql = "From Activities where title like '%" + searchTerm + "%'";
 		}
-		return entityManager.createQuery(hql, Activities.class)
-				.setFirstResult(index)
-				.setMaxResults(pageSize)
+		return entityManager.createQuery(hql, Activities.class).setFirstResult(index).setMaxResults(pageSize)
 				.getResultList();
 	}
 
@@ -103,8 +91,7 @@ public class SearchDao {
 			} else {
 				hql = "select count(*) From Activities where title like '%" + searchTerm + "%'";
 			}
-			return entityManager.createQuery(hql, Long.class)
-					.getSingleResult().intValue();
+			return entityManager.createQuery(hql, Long.class).getSingleResult().intValue();
 		} catch (NoResultException e) {
 			return 0;
 		}
