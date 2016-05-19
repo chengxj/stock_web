@@ -3,14 +3,12 @@ package com.stock.dao;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
-
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.stock.entity.common.DBObject;
 
 @Repository
-@Transactional(value="transactionManager", noRollbackFor={NoResultException.class})
+@Transactional(noRollbackFor={NoResultException.class})
 public class CommonDao {
 	
 	  @PersistenceContext(unitName="entityManagerFactory")

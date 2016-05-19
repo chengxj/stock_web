@@ -9,7 +9,7 @@ import com.stock.entity.common.DBObject;
 
 @Entity
 @Table(name = "assets_type")
-public class AssetsType implements Serializable, DBObject  {
+public class AssetsType implements Serializable, DBObject {
 
 	private static final long serialVersionUID = 1L;
 	

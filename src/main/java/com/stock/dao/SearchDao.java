@@ -14,7 +14,7 @@ import com.stock.entity.Registration;
 import com.stock.entity.common.User;
 
 @Repository
-@Transactional(value = "transactionManager", noRollbackFor = { NoResultException.class })
+@Transactional(noRollbackFor = { NoResultException.class })
 public class SearchDao {
 
 	@PersistenceContext(unitName = "entityManagerFactory")
