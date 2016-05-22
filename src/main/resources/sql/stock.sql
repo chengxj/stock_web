@@ -1,15 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50173
+Source Server         : localhost_3306
+Source Server Version : 50712
 Source Host           : localhost:3306
 Source Database       : stock
+
 Target Server Type    : MYSQL
-Target Server Version : 50173
+Target Server Version : 50712
 File Encoding         : 65001
 
-Date: 2015-01-15 17:37:31
+Date: 2016-05-22 23:41:15
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -46,6 +47,123 @@ INSERT INTO `activities` VALUES ('9', '东大高', 'CYCLING', '', '清河', '东
 INSERT INTO `activities` VALUES ('10', '花海', 'MOUNTAIN', '', '安慧桥', '珍珠泉', '黑猫', null, null);
 INSERT INTO `activities` VALUES ('11', '东大高', 'CYCLING', '', '清河', '东方红、大村、高崖口', '萝卜', null, null);
 INSERT INTO `activities` VALUES ('12', '花海', 'MOUNTAIN', '', '安慧桥', '珍珠泉', '黑猫', null, null);
+
+-- ----------------------------
+-- Table structure for `assets`
+-- ----------------------------
+DROP TABLE IF EXISTS `assets`;
+CREATE TABLE `assets` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `type` int(20) DEFAULT NULL,
+  `category` int(20) DEFAULT NULL,
+  `brand` varchar(255) DEFAULT NULL,
+  `num` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `model` varchar(255) DEFAULT NULL,
+  `vendor` varchar(255) DEFAULT NULL,
+  `factory_num` varchar(255) DEFAULT NULL,
+  `factory_date` date DEFAULT NULL,
+  `amout` int(20) DEFAULT NULL,
+  `cost` int(20) DEFAULT NULL,
+  `quantity` int(20) NOT NULL,
+  `stock_quantity` int(20) NOT NULL,
+  `performance_indices` longtext,
+  `additional_product` longtext,
+  `platform` longtext,
+  `manager` varchar(255) DEFAULT NULL,
+  `recipients` varchar(255) DEFAULT NULL,
+  `requisitioners` varchar(255) DEFAULT NULL,
+  `custodian` varchar(255) DEFAULT NULL,
+  `description` longtext,
+  `available` bit(1) NOT NULL,
+  `record_date` date DEFAULT NULL,
+  `create_user` date NOT NULL,
+  `create_time` date NOT NULL,
+  `update_time` date DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of assets
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `assets_attachment`
+-- ----------------------------
+DROP TABLE IF EXISTS `assets_attachment`;
+CREATE TABLE `assets_attachment` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `assets_id` int(20) NOT NULL,
+  `num` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `type` varchar(40) NOT NULL,
+  `url` varchar(255) NOT NULL,
+  `create_user` varchar(255) NOT NULL,
+  `create_time` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of assets_attachment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for `assets_category`
+-- ----------------------------
+DROP TABLE IF EXISTS `assets_category`;
+CREATE TABLE `assets_category` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(40) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` longtext,
+  `available` bit(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of assets_category
+-- ----------------------------
+INSERT INTO `assets_category` VALUES ('1', 'A', '探头', null, '');
+INSERT INTO `assets_category` VALUES ('2', 'B', '特殊仪器', null, '');
+INSERT INTO `assets_category` VALUES ('3', 'C', '示波器', null, '');
+INSERT INTO `assets_category` VALUES ('4', 'D', '检测仪器', null, '');
+
+-- ----------------------------
+-- Table structure for `assets_type`
+-- ----------------------------
+DROP TABLE IF EXISTS `assets_type`;
+CREATE TABLE `assets_type` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `code` varchar(40) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `description` longtext,
+  `available` bit(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of assets_type
+-- ----------------------------
+INSERT INTO `assets_type` VALUES ('1', 'A', '设备', null, '');
+INSERT INTO `assets_type` VALUES ('2', 'B', '低值易耗品', null, '');
+
+-- ----------------------------
+-- Table structure for `log`
+-- ----------------------------
+DROP TABLE IF EXISTS `log`;
+CREATE TABLE `log` (
+  `id` int(20) NOT NULL AUTO_INCREMENT,
+  `userid` int(20) NOT NULL,
+  `oper_time` date NOT NULL,
+  `project` varchar(255) DEFAULT NULL,
+  `module` varchar(255) DEFAULT NULL,
+  `remark` longtext NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of log
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for `menu`
@@ -100,18 +218,18 @@ CREATE TABLE `registration` (
   `num` int(11) NOT NULL,
   `equipment_experience_remarks` varchar(512) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of registration
 -- ----------------------------
-INSERT INTO `registration` VALUES ('1', '1', '1', 'MAN', '1', '1', '1', '1', '1', '1');
+INSERT INTO `registration` VALUES ('1', '1', '1', 'MAN', '1', '123132', '1', '1', '1', '1');
 INSERT INTO `registration` VALUES ('2', '2', '2', 'MAN', '2', '2', '2', '2', '2', '2');
 INSERT INTO `registration` VALUES ('3', '12', '1', 'MAN', '1', '1', '1', '1', '1', '1');
 INSERT INTO `registration` VALUES ('4', '12', '2', 'MAN', '2', '2', '2', '2', '2', '2');
 INSERT INTO `registration` VALUES ('5', '12', '3', 'MAN', '3', '3', '3', '3', '3', '3');
-INSERT INTO `registration` VALUES ('7', '1', '2', 'MAN', '2', '2', '2', '2', '2', '2');
-INSERT INTO `registration` VALUES ('8', '1', '3', 'WOMAN', '3', '3', '3', '3', '3', '3');
+INSERT INTO `registration` VALUES ('7', '1', '2', 'MAN', '2', '2', '2', '13213', '2', '2');
+INSERT INTO `registration` VALUES ('9', '1', '1231', 'MAN', '123', '123', '123', '132', '132', '132');
 
 -- ----------------------------
 -- Table structure for `role`

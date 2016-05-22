@@ -18,29 +18,20 @@
 							<li class="active">
 								<a href="/stock/register">
 									<i class="menu-icon fa fa-caret-right"></i>
-									资产导入
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-
-							<li class="active">
-								<a href="/stock/register">
-									<i class="menu-icon fa fa-caret-right"></i>
 									资产登记
 								</a>
 
 								<b class="arrow"></b>
 							</li>
-							
-							<li class="active">
+
+							<li class="">
 								<a href="/stock/register">
 									<i class="menu-icon fa fa-caret-right"></i>
 									资产入库
 								</a>
 
 								<b class="arrow"></b>
-							</li>
+							</li>							
 							
 							<li class="">
 								<a href="/stock/search">
@@ -59,7 +50,6 @@
 
 								<b class="arrow"></b>
 							</li>
-
 							
 							<li class="">
 								<a href="/stock/search">
@@ -77,8 +67,7 @@
 								</a>
 
 								<b class="arrow"></b>
-							</li>
-																					
+							</li>																					
 						</ul>
 					</li>
 					
