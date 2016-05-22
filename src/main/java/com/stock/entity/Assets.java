@@ -1,10 +1,13 @@
 package com.stock.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+
 import com.stock.entity.common.DBObject;
 
 @Entity
@@ -19,11 +22,13 @@ public class Assets implements Serializable, DBObject {
 	private Long type;
 	private Long category;
 	private String brand;
-	private Long num;
+	private String num;
 	private String name;
 	private String model;
-	private Long vendor;
+	private String vendor;
 	private String factory_num;
+	@Temporal(javax.persistence.TemporalType.DATE)
+	private Date factory_date;
 	private String amount;
 	private String cost;
 	private Long quantity;
@@ -34,14 +39,22 @@ public class Assets implements Serializable, DBObject {
 	private String manager;
 	private String recipients;
 	private String requisitioners;
+	private String custodian;
 	private String description;
 	private Boolean available;
+	@Temporal(javax.persistence.TemporalType.DATE)
+	private Date record_date;
+	private String create_user;
+	@Temporal(javax.persistence.TemporalType.DATE)
+	private Date create_time;
+	@Temporal(javax.persistence.TemporalType.DATE)
+	private Date update_time;
 	
 	@Override
 	public Long getId() {
 		return this.id;
 	}
-	
+
 	public Long getType() {
 		return type;
 	}
@@ -66,11 +79,11 @@ public class Assets implements Serializable, DBObject {
 		this.brand = brand;
 	}
 
-	public Long getNum() {
+	public String getNum() {
 		return num;
 	}
 
-	public void setNum(Long num) {
+	public void setNum(String num) {
 		this.num = num;
 	}
 
@@ -90,11 +103,11 @@ public class Assets implements Serializable, DBObject {
 		this.model = model;
 	}
 
-	public Long getVendor() {
+	public String getVendor() {
 		return vendor;
 	}
 
-	public void setVendor(Long vendor) {
+	public void setVendor(String vendor) {
 		this.vendor = vendor;
 	}
 
@@ -104,6 +117,14 @@ public class Assets implements Serializable, DBObject {
 
 	public void setFactory_num(String factory_num) {
 		this.factory_num = factory_num;
+	}
+
+	public Date getFactory_date() {
+		return factory_date;
+	}
+
+	public void setFactory_date(Date factory_date) {
+		this.factory_date = factory_date;
 	}
 
 	public String getAmount() {
@@ -186,6 +207,14 @@ public class Assets implements Serializable, DBObject {
 		this.requisitioners = requisitioners;
 	}
 
+	public String getCustodian() {
+		return custodian;
+	}
+
+	public void setCustodian(String custodian) {
+		this.custodian = custodian;
+	}
+
 	public String getDescription() {
 		return description;
 	}
@@ -200,6 +229,38 @@ public class Assets implements Serializable, DBObject {
 
 	public void setAvailable(Boolean available) {
 		this.available = available;
+	}
+
+	public Date getRecord_date() {
+		return record_date;
+	}
+
+	public void setRecord_date(Date record_date) {
+		this.record_date = record_date;
+	}
+
+	public String getCreate_user() {
+		return create_user;
+	}
+
+	public void setCreate_user(String create_user) {
+		this.create_user = create_user;
+	}
+
+	public Date getCreate_time() {
+		return create_time;
+	}
+
+	public void setCreate_time(Date create_time) {
+		this.create_time = create_time;
+	}
+
+	public Date getUpdate_time() {
+		return update_time;
+	}
+
+	public void setUpdate_time(Date update_time) {
+		this.update_time = update_time;
 	}
 	
 }

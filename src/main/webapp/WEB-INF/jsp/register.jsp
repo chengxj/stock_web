@@ -101,6 +101,86 @@
 									<div class="form-group">
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
 
+										<div class="col-sm-3">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-12" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-12" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-12" />
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-12" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-12" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-12" />
+										</div>
+									</div>
+									
+									
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+										<div class="col-sm-5">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+										<div class="col-sm-5">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+										<div class="col-sm-5">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+										<div class="col-sm-5">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+										<div class="col-sm-5">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+										<div class="col-sm-5">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
 										<div class="col-sm-5">
 											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
 										</div>
