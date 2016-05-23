@@ -278,13 +278,13 @@
 										<div class="col-md-offset-3 col-md-9">
 											<button class="btn btn-info" type="button">
 												<i class="ace-icon fa fa-check bigger-110"></i>
-												Submit
+												保存
 											</button>
 
 											&nbsp; &nbsp; &nbsp;
 											<button class="btn" type="reset">
 												<i class="ace-icon fa fa-undo bigger-110"></i>
-												Reset
+												取消
 											</button>
 										</div>
 									</div>
@@ -427,9 +427,7 @@
 						var val = parseInt(ui.value);
 						$('#form-field-5').attr('class', 'col-xs-'+val).val('.col-xs-'+val);
 					}
-				});
-			
-			
+				});			
 				
 				//"jQuery UI Slider"
 				//range slider tooltip example
@@ -472,7 +470,6 @@
 				});
 				
 				$("#slider-eq > span.ui-slider-purple").slider('disable');//disable third item
-			
 				
 				$('#id-input-file-1 , #id-input-file-2').ace_file_input({
 					no_file:'No File ...',
@@ -484,11 +481,9 @@
 					//whitelist:'gif|png|jpg|jpeg'
 					//blacklist:'exe|php'
 					//onchange:''
-					//
 				});
 				//pre-show a file name, for example a previously selected file
 				//$('#id-input-file-1').ace_file_input('show_file_list', ['myfile.txt'])
-			
 			
 				$('#id-input-file-3').ace_file_input({
 					style:'well',
@@ -521,20 +516,18 @@
 					//console.log($(this).data('ace_input_method'));
 				});
 				
-			
 				//dynamically change allowed formats by changing allowExt && allowMime function
 				$('#id-file-format').removeAttr('checked').on('change', function() {
 					var whitelist_ext, whitelist_mime;
 					var btn_choose
 					var no_icon
-					if(this.checked) {
+					if (this.checked) {
 						btn_choose = "Drop images here or click to choose";
 						no_icon = "ace-icon fa fa-picture-o";
 			
 						whitelist_ext = ["jpeg", "jpg", "png", "gif" , "bmp"];
 						whitelist_mime = ["image/jpg", "image/jpeg", "image/png", "image/gif", "image/bmp"];
-					}
-					else {
+					} else {
 						btn_choose = "Drop files here or click to choose";
 						no_icon = "ace-icon fa fa-cloud-upload";
 						
@@ -542,8 +535,7 @@
 						whitelist_mime = null;//all mimes are acceptable
 					}
 					var file_input = $('#id-input-file-3');
-					file_input
-					.ace_file_input('update_settings',
+					file_input.ace_file_input('update_settings',
 					{
 						'btn_choose': btn_choose,
 						'no_icon': no_icon,

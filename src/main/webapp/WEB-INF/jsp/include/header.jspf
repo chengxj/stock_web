@@ -13,6 +13,14 @@
 		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
 		
 		<!-- page specific plugin styles -->
+		<link rel="stylesheet" href="../assets/css/jquery-ui.custom.min.css" />
+		<link rel="stylesheet" href="../assets/css/chosen.css" />
+		<link rel="stylesheet" href="../assets/css/datepicker.css" />
+		<link rel="stylesheet" href="../assets/css/bootstrap-timepicker.css" />
+		<link rel="stylesheet" href="../assets/css/daterangepicker.css" />
+		<link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.css" />
+		<link rel="stylesheet" href="../assets/css/colorpicker.css" />		
+		
 		<!-- text fonts -->
 		<link rel="stylesheet" href="../assets/css/ace-fonts.css" />
 		<!-- ace styles -->
@@ -69,7 +77,6 @@
 					<!-- #section:basics/navbar.layout.brand -->
 					<a href="#" class="navbar-brand">
 						<small>
-							<img src="/resources/img/project_red_24_24.png"></img>
 							设备资源管理系统
 						</small>
 					</a>
