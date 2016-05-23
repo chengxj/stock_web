@@ -100,151 +100,180 @@
 									<!-- #section:elements.form -->
 									<div class="space-4"></div>
 									<div class="form-group">
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> 类 型 </label>
 
-										<div class="col-sm-3">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-12" />
+										<div class="col-sm-11">
+											<div class="radio" style="margin-left:-20px;margin-top:-2px;">
+												<label>
+													<input name="form-field-radio" type="radio" class="ace" checked=checked />
+													<span class="lbl" style="font-size:12px;"> 设备工具仪器 </span>
+												</label>
+												<label>
+													<input name="form-field-radio" type="radio" class="ace">
+													<span class="lbl" style="font-size:12px;"> 低值易耗品</span>
+												</label>
+											</div>
 										</div>
 										
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-2"> 分  类 </label>
 
-										<div class="col-sm-3">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-12" />
+										<div class="col-sm-3">											
+											<select id="form-field-2" placeholder="Username" class="col-xs-10 col-sm-12" >
+												<option> 请选择 </option>
+												<option> 探头 </option>
+												<option> 特殊仪器 </option>
+												<option> 示波器 </option>
+												<option> 检测仪器 </option>
+											</select>
 										</div>
 										
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-3"> 设备编号 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-12" />
+											<input id="form-field-3" type="text" placeholder="设备编号" class="col-xs-10 col-sm-12" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-4"> 设备名称 </label>
+
+										<div class="col-sm-3">
+											<input id="form-field-4" type="text" placeholder="设备名称" class="col-xs-10 col-sm-12" />
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-5"> 规格型号 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-5" placeholder="规格型号" class="col-xs-10 col-sm-12" />
 										</div>
 										
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-6"> 品 牌 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-6" placeholder="品牌" class="col-xs-10 col-sm-12" />
 										</div>
 										
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-7"> 供应商 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-7" placeholder="供应商" class="col-xs-10 col-sm-12" />
 										</div>
 									</div>
 									
 									
 									<div class="form-group">
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-8"> 出厂编号 </label>
 
-										<div class="col-sm-5">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
+										<div class="col-sm-3">
+											<input type="text" id="form-field-8" placeholder="出厂编号" class="col-xs-10 col-sm-12" />
 										</div>
 										
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
+										<label class="col-sm-1 control-label no-padding-right" for="id-date-picker-1"> 出厂日期 </label>
 
-										<div class="col-sm-5">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
-
-										<div class="col-sm-5">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
-										</div>
-										
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
-
-										<div class="col-sm-5">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
-
-										<div class="col-sm-5">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
-										</div>
-										
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
-
-										<div class="col-sm-5">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
-
-										<div class="col-sm-5">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
-										</div>
-										
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-1"> Text Field </label>
-
-										<div class="col-sm-5">
-											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-10" />
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-1-1"> Full Length </label>
-
-										<div class="col-sm-9">
-											<input type="text" id="form-field-1-1" placeholder="Text Field" class="form-control" />
-										</div>
-									</div>
-
-									<!-- /section:elements.form -->
-									<div class="space-4"></div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-2"> Password Field </label>
-
-										<div class="col-sm-9">
-											<input type="password" id="form-field-2" placeholder="Password" class="col-xs-10 col-sm-5" />
-											<span class="help-inline col-xs-12 col-sm-7">
-												<span class="middle">Inline help text</span>
-											</span>
-										</div>
-									</div>
-
-									<div class="space-4"></div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">Tag input</label>
-
-										<div class="col-sm-9">
-											<!-- #section:plugins/input.tag-input -->
-											<div class="inline">
-												<input type="text" name="tags" id="form-field-tags" value="Tag Input Control" placeholder="Enter tags ..." />
+										<div class="col-sm-3">
+											<div class="input-group">
+												<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+												<span class="input-group-addon">
+													<i class="fa fa-calendar bigger-110"></i>
+												</span>
 											</div>
-
-											<!-- /section:plugins/input.tag-input -->
 										</div>
-									</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="id-date-picker-2"> 登记日期 </label>
 
-									<div class="space-4"></div>
-
-									<div class="form-group">
-										<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">Typeahead.js</label>
-
-										<div class="col-sm-9">
-											<!-- #section:plugins/bootstrap.typeahead-js -->
-											<div class="pos-rel">
-												<input class="typeahead scrollable" type="text" placeholder="States of USA" />
+										<div class="col-sm-3">
+											<div class="input-group">
+												<input class="form-control date-picker" id="id-date-picker-2" type="text" data-date-format="dd-mm-yyyy">
+												<span class="input-group-addon">
+													<i class="fa fa-calendar bigger-110"></i>
+												</span>
 											</div>
-
-											<!-- /section:plugins/bootstrap.typeahead-js -->
 										</div>
 									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-10"> 单 价 </label>
 
+										<div class="col-sm-3">
+											<input type="text" id="form-field-10" placeholder="单价" class="col-xs-10 col-sm-12" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-11"> 数 量 </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-11" placeholder="数量" class="col-xs-10 col-sm-12" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-12"> 金 额 </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-12" placeholder="金额" class="col-xs-10 col-sm-12" />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-31"> 性能指标 </label>
+
+										<div class="col-sm-11">
+											<textarea id="form-field-31" style="height:120px;" placeholder="性能指标" class="col-xs-10 col-sm-12" ></textarea>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-51"> 平 台 </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-51" placeholder="平台" class="col-xs-10 col-sm-12" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-52"> 负责人 </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-52" placeholder="负责人" class="col-xs-10 col-sm-12" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-53"> 申购人 </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-53" placeholder="申购人" class="col-xs-10 col-sm-12" />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-61"> 领用人  </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-61" placeholder="领用人" class="col-xs-10 col-sm-12" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-62"> 保管人 </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-62" placeholder="保管人" class="col-xs-10 col-sm-12" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-63"> 发 布 </label>
+
+										<div class="col-sm-3">
+											<div style="margin-left:2px;margin-top:5px;">
+												<label>
+													<input name="switch-field-1" class="ace ace-switch ace-switch-2" type="checkbox">
+													<span class="lbl"></span>
+												</label>
+											</div>
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-32"> 附加产品 </label>
+
+										<div class="col-sm-11">
+											<textarea id="form-field-32" style="height:120px;" placeholder="附加产品" class="col-xs-10 col-sm-12" ></textarea>
+										</div>
+									</div>
+																		
 									<div class="clearfix form-actions">
 										<div class="col-md-offset-3 col-md-9">
 											<button class="btn btn-info" type="button">
