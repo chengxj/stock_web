@@ -267,13 +267,31 @@
 									</div>
 									
 									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-61"> 图 片  </label>
+
+										<div class="col-sm-11">
+											<label class="ace-file-input ace-file-multiple">
+												<input multiple="" type="file" id="id-input-file-3">
+											</label>
+										</div>
+									</div>
+									
+									<div class="form-group">
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-32"> 附加产品 </label>
 
 										<div class="col-sm-11">
 											<textarea id="form-field-32" style="height:120px;" placeholder="附加产品" class="col-xs-10 col-sm-12" ></textarea>
 										</div>
 									</div>
-																		
+									
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-32"> 备注 </label>
+
+										<div class="col-sm-11">
+											<textarea id="form-field-32" style="height:120px;" placeholder="备注" class="col-xs-10 col-sm-12" ></textarea>
+										</div>
+									</div>
+									
 									<div class="clearfix form-actions">
 										<div class="col-md-offset-3 col-md-9">
 											<button class="btn btn-info" type="button">
@@ -482,38 +500,19 @@
 					//blacklist:'exe|php'
 					//onchange:''
 				});
-				//pre-show a file name, for example a previously selected file
-				//$('#id-input-file-1').ace_file_input('show_file_list', ['myfile.txt'])
 			
 				$('#id-input-file-3').ace_file_input({
 					style:'well',
-					btn_choose:'Drop files here or click to choose',
+					btn_choose:'拖拽文件到这或是点击选择',
 					btn_change:null,
 					no_icon:'ace-icon fa fa-cloud-upload',
 					droppable:true,
-					thumbnail:'small'//large | fit
-					//,icon_remove:null//set null, to hide remove/reset button
-					/**,before_change:function(files, dropped) {
-						//Check an example below
-						//or examples/file-upload.html
-						return true;
-					}*/
-					/**,before_remove : function() {
-						return true;
-					}*/
-					,
+					thumbnail:'small',
 					preview_error : function(filename, error_code) {
-						//name of the file that failed
-						//error_code values
-						//1 = 'FILE_LOAD_FAILED',
-						//2 = 'IMAGE_LOAD_FAILED',
-						//3 = 'THUMBNAIL_FAILED'
-						//alert(error_code);
+						
 					}
 			
 				}).on('change', function(){
-					//console.log($(this).data('ace_input_files'));
-					//console.log($(this).data('ace_input_method'));
 				});
 				
 				//dynamically change allowed formats by changing allowExt && allowMime function
@@ -547,33 +546,6 @@
 					file_input
 					.off('file.error.ace')
 					.on('file.error.ace', function(e, info) {
-						//console.log(info.file_count);//number of selected files
-						//console.log(info.invalid_count);//number of invalid files
-						//console.log(info.error_list);//a list of errors in the following format
-						
-						//info.error_count['ext']
-						//info.error_count['mime']
-						//info.error_count['size']
-						
-						//info.error_list['ext']  = [list of file names with invalid extension]
-						//info.error_list['mime'] = [list of file names with invalid mimetype]
-						//info.error_list['size'] = [list of file names with invalid size]
-						
-						
-						/**
-						if( !info.dropped ) {
-							//perhapse reset file field if files have been selected, and there are invalid files among them
-							//when files are dropped, only valid files will be added to our file array
-							e.preventDefault();//it will rest input
-						}
-						*/
-						
-						
-						//if files have been selected (not dropped), you can choose to reset input
-						//because browser keeps all selected files anyway and this cannot be changed
-						//we can only reset file field to become empty again
-						//on any case you still should check files with your server side script
-						//because any arbitrary file can be uploaded by user and it's not safe to rely on browser-side measures
 					});
 				
 				});
@@ -584,14 +556,9 @@
 				});
 				$('#spinner2').ace_spinner({value:0,min:0,max:10000,step:100, touch_spinner: true, icon_up:'ace-icon fa fa-caret-up', icon_down:'ace-icon fa fa-caret-down'});
 				$('#spinner3').ace_spinner({value:0,min:-100,max:100,step:10, on_sides: true, icon_up:'ace-icon fa fa-plus smaller-75', icon_down:'ace-icon fa fa-minus smaller-75', btn_up_class:'btn-success' , btn_down_class:'btn-danger'});
-				//$('#spinner1').ace_spinner('disable').ace_spinner('value', 11);
-				//or
-				//$('#spinner1').closest('.ace-spinner').spinner('disable').spinner('enable').spinner('value', 11);//disable, enable or change value
-				//$('#spinner1').closest('.ace-spinner').spinner('value', 0);//reset to 0
-			
+							
 			
 				//datepicker plugin
-				//link
 				$('.date-picker').datepicker({
 					autoclose: true,
 					todayHighlight: true
@@ -604,7 +571,6 @@
 				//or change it into a date range picker
 				$('.input-daterange').datepicker({autoclose:true});
 			
-			
 				//to translate the daterange picker, please copy the "examples/daterange-fr.js" contents here before initialization
 				$('input[name=date-range-picker]').daterangepicker({
 					'applyClass' : 'btn-sm btn-success',
@@ -613,11 +579,9 @@
 						applyLabel: 'Apply',
 						cancelLabel: 'Cancel',
 					}
-				})
-				.prev().on(ace.click_event, function(){
+				}).prev().on(ace.click_event, function(){
 					$(this).next().focus();
-				});
-			
+				});			
 			
 				$('#timepicker1').timepicker({
 					minuteStep: 1,
@@ -629,8 +593,7 @@
 				
 				$('#date-timepicker1').datetimepicker().next().on(ace.click_event, function(){
 					$(this).prev().focus();
-				});
-				
+				});				
 			
 				$('#colorpicker1').colorpicker();
 			
@@ -639,7 +602,6 @@
 				//$('#simple-colorpicker-1').ace_colorpicker('pick', '#fbe983');//select #fbe983 color
 				//var picker = $('#simple-colorpicker-1').data('ace_colorpicker')
 				//picker.pick('red', true);//insert the color if it doesn't exist
-			
 			
 				$(".knob").knob();
 				
@@ -672,9 +634,6 @@
 					tag_input.after('<textarea id="'+tag_input.attr('id')+'" name="'+tag_input.attr('name')+'" rows="3">'+tag_input.val()+'</textarea>').remove();
 					//$('#form-field-tags').autosize({append: "\n"});
 				}
-				
-				
-				//////////
 				
 				//typeahead.js
 				//example taken from plugin's page at: https://twitter.github.io/typeahead.js/examples/
@@ -711,13 +670,10 @@
 					displayKey: 'value',
 					source: substringMatcher(ace.vars['US_STATES'])
 				 });
-					
-			
-			
-				/////////
+				 
 				$('#modal-form input[type=file]').ace_file_input({
 					style:'well',
-					btn_choose:'Drop files here or click to choose',
+					btn_choose:'拖拽文件到这或是点击选择',
 					btn_change:null,
 					no_icon:'ace-icon fa fa-cloud-upload',
 					droppable:true,
