@@ -25,7 +25,7 @@
 							</li>
 
 							<li class="">
-								<a href="/stock/register">
+								<a href="/stock/instock">
 									<i class="menu-icon fa fa-caret-right"></i>
 									资产入库
 								</a>
@@ -34,7 +34,7 @@
 							</li>							
 							
 							<li class="">
-								<a href="/stock/search">
+								<a href="/stock/outstock">
 									<i class="menu-icon fa fa-caret-right"></i>
 									资产出库
 								</a>

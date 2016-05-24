@@ -52,6 +52,26 @@ public class WebController {
 	public String base(Model model) {
 		return "base";
 	}
+	
+	@RequestMapping(value = "/stock/instock")
+	public String instock(Model model) {
+		return "instock";
+	}
+	
+	@RequestMapping(value = "/stock/outstock")
+	public String outstock(Model model) {
+		return "outstock";
+	}
+	
+	@RequestMapping(value = "/stock/edit")
+	public String edit(Model model) {
+		return "edit";
+	}
+	
+	@RequestMapping(value = "/stock/odo")
+	public String odo(Model model) {
+		return "odo";
+	}
 
 	@RequestMapping(value = "/stock/login", method = RequestMethod.GET)
 	public String login(Model model, HttpServletRequest request) throws Exception {
