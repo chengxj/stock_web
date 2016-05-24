@@ -71,7 +71,9 @@
 							<a href="#">主页</a>
 						</li>
 						
-						<li class="active">资产出库</li>
+						<li class="active">资产再入库</li>
+						
+						<li class="active">入库单</li>
 						
 					</ul><!-- /.breadcrumb -->
 
@@ -93,144 +95,63 @@
 							</h1>
 						</div--><!-- /.page-header -->
 
-								<div class="row">
+						<div class="row">
+							<div class="col-xs-12">
+								<!-- PAGE CONTENT BEGINS -->
+								<form class="form-horizontal" role="form">									
+									<div class="space-4"></div>
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-8"> 入库单号 </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-8" placeholder="R2016052401-001" class="col-xs-10 col-sm-12" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="id-date-picker-1"> 入库日期 </label>
+
+										<div class="col-sm-3">
+											<div class="input-group">
+												<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+												<span class="input-group-addon">
+													<i class="fa fa-calendar bigger-110"></i>
+												</span>
+											</div>
+										</div>
+										
+										
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-10"> 库管人 </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-10" placeholder="库管人" class="col-xs-10 col-sm-12" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-11"> 领用人 </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-11" placeholder="领用人" class="col-xs-10 col-sm-12" />
+										</div>
+										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-12"> 负责人 </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-12" placeholder="负责人" class="col-xs-10 col-sm-12" />
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-32"> 备注 </label>
+
+										<div class="col-sm-11">
+											<textarea id="form-field-32" style="height:120px;" placeholder="备注" class="col-xs-10 col-sm-12" ></textarea>
+										</div>
+									</div>
+									
+									<div class="form-group">
 									<div class="col-sm-12">
-										<!-- #section:elements.tab -->
-										<div class="tabbable">
-											<ul class="nav nav-tabs" id="myTab">
-												<li class="active">
-													<a data-toggle="tab" href="#home">
-														<i class="green ace-icon fa fa-flash bigger-120"></i>
-														快速出库
-													</a>
-												</li>
-
-												<li class="">
-													<a data-toggle="tab" href="#messages">
-														<i class="green ace-icon fa fa-search bigger-120"></i>
-														检索出库
-													</a>
-												</li>
-											</ul>
-
-											<div class="tab-content">
-												<div id="home" class="tab-pane fade active in">
-													
-													<form class="form-search">
-														<span>															
-															<input type="text" placeholder="Search ..." style="width:300px;" class="nav-search-input" id="nav-search-input" autocomplete="off">
-															<button class="btn btn-sm btn-primary" style="margin-top:-4px;"> 查 询 </button>
-															<button class="btn btn-sm btn-primary" style="margin-top:-4px;"> 批量出库  </button>
-														</span>
-													</form>
-													
-													<div class="space-4"></div>
-																			
-													<table id="sample-table-1" class="table table-striped table-bordered table-hover">
-														<thead>
-															<tr>
-																<th class="center">
-																	<label class="position-relative">
-																		<input type="checkbox" class="ace">
-																		<span class="lbl"></span>
-																	</label>
-																</th>
-																<th>入库单编号</th>
-																<th>入库日期</th>
-																<th class="hidden-480">库管人</th>
-																<th>
-																	申购人
-																</th>
-																<th class="hidden-480">负责人</th>
-																<th>出库</th>
-															</tr>
-														</thead>
-														<tbody>
-															<tr>
-																<td class="center">
-																	<label class="position-relative">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"></span>
-																	</label>
-																</td>
-																<td>
-																	<a href="#">R2016052401-001</a>
-																</td>
-																<td>2016年5月24号</td>
-																<td class="hidden-480">测试人</td>
-																<td>测试人</td>
-																<td class="hidden-480">测试人</td>
-																<td>
-																	<div class="hidden-sm hidden-xs action-buttons">															
-																		<a class="green" href="/stock/odo">
-																			<i class="ace-icon fa fa-check bigger-130"></i>
-																		</a>
-			
-																	</div>
-																</td>
-															</tr>
-															<tr>
-																<td class="center">
-																	<label class="position-relative">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"></span>
-																	</label>
-																</td>
-																<td>
-																	<a href="#">R2016052401-002</a>
-																</td>
-																<td>2016年5月24号</td>
-																<td class="hidden-480">测试人</td>
-																<td>测试人</td>
-																<td class="hidden-480">测试人</td>
-																<td>
-																	<div class="hidden-sm hidden-xs action-buttons">														
-			
-																		<a class="green" href="/stock/odo">
-																			<i class="ace-icon fa fa-check bigger-130"></i>
-																		</a>
-
-																	</div>												
-																</td>
-															</tr>	
-															<tr>
-																<td class="center">
-																	<label class="position-relative">
-																		<input type="checkbox" class="ace" />
-																		<span class="lbl"></span>
-																	</label>
-																</td>
-																<td>
-																	<a href="#">R2016052401-003</a>
-																</td>
-																<td>2016年5月24号</td>
-																<td class="hidden-480">测试人</td>
-																<td>测试人</td>
-																<td class="hidden-480">测试人</td>
-																<td>
-																	<div class="hidden-sm hidden-xs action-buttons">
-																		<a class="green" href="/stock/odo">
-																			<i class="ace-icon fa fa-check bigger-130"></i>
-																		</a>
-																	</div>
-																</td>
-															</tr>																						
-														</tbody>
-													</table>
-												</div>
-
-												<div id="messages" class="tab-pane fade">
-													<form class="form-search">
-														<span>															
-															<input type="text" placeholder="Search ..." style="width:300px;" class="nav-search-input" id="nav-search-input" autocomplete="off">
-															<button class="btn btn-sm btn-primary" style="margin-top:-4px;"> 查 询 </button>
-															<button class="btn btn-sm btn-primary" style="margin-top:-4px;" id="outstock"> 出库  </button>
-														</span>
-													</form>
-													
-													<div class="space-4"></div>
-																			
-													<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+									<table id="sample-table-1" class="table table-striped table-bordered table-hover">
 											<thead>
 												<tr>
 													<th class="center">
@@ -245,13 +166,11 @@
 													<th>
 														数量
 													</th>
+													<th>
+														入库数
+													</th>
 													<th class="hidden-480">单价</th>
-													<th>金额</th>
-													<th>品牌</th>
-													<th>供应商</th>
-													<th>入库日期</th>
-													<th>申购人</th>
-													<th>项目负责人</th>
+													<th>操作</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -268,17 +187,18 @@
 													<td>0.01uF/6300VAC(57*29*45mm)</td>
 													<td class="hidden-480">只</td>
 													<td>6</td>
+													<td><input type="text" id="form-field-12" placeholder="出库数" class="col-xs-10 col-sm-12" /></td>
 													<td class="hidden-480">
 														<span class="label label-sm label-warning">100</span>
 													</td>
-													<td class="hidden-480">
-														<span class="label label-sm label-warning">600</span>
+													<td>
+														<div class="hidden-sm hidden-xs action-buttons">															
+															
+															<a class="red" href="#">
+																<i class="ace-icon fa fa-trash-o bigger-130"></i>
+															</a>
+														</div>
 													</td>
-													<td>新容</td>
-													<td>公司</td>
-													<td>2016年5月24号</td>
-													<td>测试人</td>
-													<td>负责人</td>													
 												</tr>
 												<tr>
 													<td class="center">
@@ -290,21 +210,22 @@
 													<td>
 														<a href="#">电容</a>
 													</td>
-													<td>0.01uF/6300VAC(57*29*45mm)</td>
+													<td>0.01uF/6300VAC(64*75mm)</td>
 													<td class="hidden-480">只</td>
 													<td>6</td>
+													<td><input type="text" id="form-field-12" placeholder="出库数" class="col-xs-10 col-sm-12" /></td>
 													<td class="hidden-480">
-														<span class="label label-sm label-warning">100</span>
+														<span class="label label-sm label-warning">200</span>
 													</td>
-													<td class="hidden-480">
-														<span class="label label-sm label-warning">600</span>
+													<td>
+														<div class="hidden-sm hidden-xs action-buttons">
+
+															<a class="red" href="#">
+																<i class="ace-icon fa fa-trash-o bigger-130"></i>
+															</a>
+														</div>												
 													</td>
-													<td>新容</td>
-													<td>公司</td>
-													<td>2016年5月24号</td>
-													<td>测试人</td>
-													<td>负责人</td>													
-												</tr>
+												</tr>	
 												<tr>
 													<td class="center">
 														<label class="position-relative">
@@ -315,57 +236,51 @@
 													<td>
 														<a href="#">电容</a>
 													</td>
-													<td>0.01uF/6300VAC(57*29*45mm)</td>
+													<td>0.01uF/6300VAC(89*140mm)</td>
 													<td class="hidden-480">只</td>
 													<td>6</td>
+													<td><input type="text" id="form-field-12" placeholder="出库数" class="col-xs-10 col-sm-12" /></td>
 													<td class="hidden-480">
-														<span class="label label-sm label-warning">100</span>
-													</td>
-													<td class="hidden-480">
-														<span class="label label-sm label-warning">600</span>
-													</td>
-													<td>新容</td>
-													<td>公司</td>
-													<td>2016年5月24号</td>
-													<td>测试人</td>
-													<td>负责人</td>													
-												</tr>
-												<tr>
-													<td class="center">
-														<label class="position-relative">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"></span>
-														</label>
+														<span class="label label-sm label-warning">3000</span>
 													</td>
 													<td>
-														<a href="#">电容</a>
+														<div class="hidden-sm hidden-xs action-buttons">
+															<a class="red" href="#">
+																<i class="ace-icon fa fa-trash-o bigger-130"></i>
+															</a>
+														</div>
 													</td>
-													<td>0.01uF/6300VAC(57*29*45mm)</td>
-													<td class="hidden-480">只</td>
-													<td>6</td>
-													<td class="hidden-480">
-														<span class="label label-sm label-warning">100</span>
-													</td>
-													<td class="hidden-480">
-														<span class="label label-sm label-warning">600</span>
-													</td>
-													<td>新容</td>
-													<td>公司</td>
-													<td>2016年5月24号</td>
-													<td>测试人</td>
-													<td>负责人</td>													
 												</tr>
+																		
 											</tbody>
 										</table>
-												</div>
-											</div>
 										</div>
+									</div>
+									
+									<div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<button class="btn btn-info" type="button">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												出库
+											</button>
+											
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												返回
+											</button>
 
-										<!-- /section:elements.tab -->
-									</div><!-- /.col -->
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="ace-icon fa fa-undo bigger-110"></i>
+												导出
+											</button>
+										</div>
+									</div>
 
-								</div>
-
+								</form>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
 					</div><!-- /.page-content-area -->
 				</div><!-- /.page-content -->
 			</div><!-- /.main-content -->
@@ -754,8 +669,8 @@
 				})
 				*/
 				
-				$("#outstock").click(function(){
-					location.href = "/stock/odo";					
+				$("button.btn").click(function(){
+					location.href = "/stock/outstock";
 				});
 			
 			});

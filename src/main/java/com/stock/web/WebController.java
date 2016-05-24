@@ -20,12 +20,12 @@ public class WebController {
 	
 	@RequestMapping(value = "/")
 	public String index(Model model) {
-		return "index";
+		return "search";
 	}
 
 	@RequestMapping(value = "/stock")
 	public String home(Model model) {
-		return "index";
+		return "search";
 	}
 	
 	@RequestMapping(value = "/stock/register")
@@ -71,6 +71,21 @@ public class WebController {
 	@RequestMapping(value = "/stock/odo")
 	public String odo(Model model) {
 		return "odo";
+	}
+	
+	@RequestMapping(value = "/stock/do")
+	public String DO(Model model) {
+		return "do";
+	}
+	
+	@RequestMapping(value = "/stock/reinstock")
+	public String reinstock(Model model) {
+		return "reinstock";
+	}
+	
+	@RequestMapping(value = "/stock/report")
+	public String report(Model model) {
+		return "report";
 	}
 
 	@RequestMapping(value = "/stock/login", method = RequestMethod.GET)

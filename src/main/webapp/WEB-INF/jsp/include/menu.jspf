@@ -43,7 +43,7 @@
 							</li>
 
 							<li class="">
-								<a href="/stock/search">
+								<a href="/stock/reinstock">
 									<i class="menu-icon fa fa-caret-right"></i>
 									资产再入库
 								</a>
@@ -61,7 +61,7 @@
 							</li>
 							
 							<li class="">
-								<a href="/stock/search">
+								<a href="/stock/report">
 									<i class="menu-icon fa fa-caret-right"></i>
 									资产统计
 								</a>

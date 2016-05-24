@@ -87,28 +87,39 @@
 									
 								<div class="row">
 									<div class="col-xs-12">
-										<table id="sample-table-1" class="table table-striped table-bordered table-hover">
+													<form class="form-search">
+														<span>															
+															<input type="text" placeholder="Search ..." style="width:300px;" class="nav-search-input" id="nav-search-input" autocomplete="off">
+															<button class="btn btn-sm btn-primary" style="margin-top:-4px;"> 查 询 </button>
+														</span>
+													</form>
+													
+													<div class="space-4"></div>
+													<table id="sample-table-1" class="table table-striped table-bordered table-hover">
 											<thead>
 												<tr>
 													<th class="center">
 														<label class="position-relative">
-															<input type="checkbox" class="ace" />
+															<input type="checkbox" class="ace">
 															<span class="lbl"></span>
 														</label>
 													</th>
-													<th>标题</th>
-													<th>类型</th>
-													<th class="hidden-480">领队</th>
+													<th>名称</th>
+													<th>型号规格</th>
+													<th class="hidden-480">单位</th>
 													<th>
-														<i class="ace-icon fa fa-clock-o bigger-110 hidden-480"></i>
-														景点
+														数量
 													</th>
-													<th class="hidden-480">出发地</th>
-													<th>目的地</th>
+													<th class="hidden-480">单价</th>
+													<th>金额</th>
+													<th>品牌</th>
+													<th>供应商</th>
+													<th>入库日期</th>
+													<th>申购人</th>
+													<th>项目负责人</th>
 												</tr>
 											</thead>
-
-											<tbody ng-repeat="activity in data.activities">
+											<tbody>
 												<tr>
 													<td class="center">
 														<label class="position-relative">
@@ -117,21 +128,101 @@
 														</label>
 													</td>
 													<td>
-														<a href="#">{{activity.title}}</a>
+														<a href="#">电容</a>
 													</td>
-													<td>{{activity.type_enum}}</td>
-													<td class="hidden-480">{{activity.leader}}</td>
-													<td>{{activity.scenic_spots}}</td>
-
+													<td>0.01uF/6300VAC(57*29*45mm)</td>
+													<td class="hidden-480">只</td>
+													<td>6</td>
 													<td class="hidden-480">
-														<span class="label label-sm label-warning">{{activity.departure}}</span>
+														<span class="label label-sm label-warning">100</span>
 													</td>
-
-													<td>{{activity.destination}}</td>
+													<td class="hidden-480">
+														<span class="label label-sm label-warning">600</span>
+													</td>
+													<td>新容</td>
+													<td>公司</td>
+													<td>2016年5月24号</td>
+													<td>测试人</td>
+													<td>负责人</td>													
 												</tr>
-
+												<tr>
+													<td class="center">
+														<label class="position-relative">
+															<input type="checkbox" class="ace" />
+															<span class="lbl"></span>
+														</label>
+													</td>
+													<td>
+														<a href="#">电容</a>
+													</td>
+													<td>0.01uF/6300VAC(57*29*45mm)</td>
+													<td class="hidden-480">只</td>
+													<td>6</td>
+													<td class="hidden-480">
+														<span class="label label-sm label-warning">100</span>
+													</td>
+													<td class="hidden-480">
+														<span class="label label-sm label-warning">600</span>
+													</td>
+													<td>新容</td>
+													<td>公司</td>
+													<td>2016年5月24号</td>
+													<td>测试人</td>
+													<td>负责人</td>													
+												</tr>
+												<tr>
+													<td class="center">
+														<label class="position-relative">
+															<input type="checkbox" class="ace" />
+															<span class="lbl"></span>
+														</label>
+													</td>
+													<td>
+														<a href="#">电容</a>
+													</td>
+													<td>0.01uF/6300VAC(57*29*45mm)</td>
+													<td class="hidden-480">只</td>
+													<td>6</td>
+													<td class="hidden-480">
+														<span class="label label-sm label-warning">100</span>
+													</td>
+													<td class="hidden-480">
+														<span class="label label-sm label-warning">600</span>
+													</td>
+													<td>新容</td>
+													<td>公司</td>
+													<td>2016年5月24号</td>
+													<td>测试人</td>
+													<td>负责人</td>													
+												</tr>
+												<tr>
+													<td class="center">
+														<label class="position-relative">
+															<input type="checkbox" class="ace" />
+															<span class="lbl"></span>
+														</label>
+													</td>
+													<td>
+														<a href="#">电容</a>
+													</td>
+													<td>0.01uF/6300VAC(57*29*45mm)</td>
+													<td class="hidden-480">只</td>
+													<td>6</td>
+													<td class="hidden-480">
+														<span class="label label-sm label-warning">100</span>
+													</td>
+													<td class="hidden-480">
+														<span class="label label-sm label-warning">600</span>
+													</td>
+													<td>新容</td>
+													<td>公司</td>
+													<td>2016年5月24号</td>
+													<td>测试人</td>
+													<td>负责人</td>													
+												</tr>
 											</tbody>
 										</table>
+																			
 									</div><!-- /.span -->
 								</div><!-- /.row -->
 									

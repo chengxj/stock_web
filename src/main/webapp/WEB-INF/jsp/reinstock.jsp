@@ -71,7 +71,7 @@
 							<a href="#">主页</a>
 						</li>
 						
-						<li class="active">资产出库</li>
+						<li class="active">资产再入库</li>
 						
 					</ul><!-- /.breadcrumb -->
 
@@ -101,14 +101,14 @@
 												<li class="active">
 													<a data-toggle="tab" href="#home">
 														<i class="green ace-icon fa fa-flash bigger-120"></i>
-														快速出库
+														快速入库
 													</a>
 												</li>
 
 												<li class="">
 													<a data-toggle="tab" href="#messages">
 														<i class="green ace-icon fa fa-search bigger-120"></i>
-														检索出库
+														检索入库
 													</a>
 												</li>
 											</ul>
@@ -120,7 +120,7 @@
 														<span>															
 															<input type="text" placeholder="Search ..." style="width:300px;" class="nav-search-input" id="nav-search-input" autocomplete="off">
 															<button class="btn btn-sm btn-primary" style="margin-top:-4px;"> 查 询 </button>
-															<button class="btn btn-sm btn-primary" style="margin-top:-4px;"> 批量出库  </button>
+															<button class="btn btn-sm btn-primary" style="margin-top:-4px;"> 批量入库  </button>
 														</span>
 													</form>
 													
@@ -135,14 +135,14 @@
 																		<span class="lbl"></span>
 																	</label>
 																</th>
-																<th>入库单编号</th>
-																<th>入库日期</th>
+																<th>出库单编号</th>
+																<th>出库日期</th>
 																<th class="hidden-480">库管人</th>
 																<th>
-																	申购人
+																	领用人
 																</th>
 																<th class="hidden-480">负责人</th>
-																<th>出库</th>
+																<th>入库</th>
 															</tr>
 														</thead>
 														<tbody>
@@ -154,7 +154,7 @@
 																	</label>
 																</td>
 																<td>
-																	<a href="#">R2016052401-001</a>
+																	<a href="#">C2016052401-001</a>
 																</td>
 																<td>2016年5月24号</td>
 																<td class="hidden-480">测试人</td>
@@ -162,7 +162,7 @@
 																<td class="hidden-480">测试人</td>
 																<td>
 																	<div class="hidden-sm hidden-xs action-buttons">															
-																		<a class="green" href="/stock/odo">
+																		<a class="green" href="/stock/do">
 																			<i class="ace-icon fa fa-check bigger-130"></i>
 																		</a>
 			
@@ -177,7 +177,7 @@
 																	</label>
 																</td>
 																<td>
-																	<a href="#">R2016052401-002</a>
+																	<a href="#">C2016052401-002</a>
 																</td>
 																<td>2016年5月24号</td>
 																<td class="hidden-480">测试人</td>
@@ -186,7 +186,7 @@
 																<td>
 																	<div class="hidden-sm hidden-xs action-buttons">														
 			
-																		<a class="green" href="/stock/odo">
+																		<a class="green" href="/stock/do">
 																			<i class="ace-icon fa fa-check bigger-130"></i>
 																		</a>
 
@@ -201,7 +201,7 @@
 																	</label>
 																</td>
 																<td>
-																	<a href="#">R2016052401-003</a>
+																	<a href="#">C2016052401-003</a>
 																</td>
 																<td>2016年5月24号</td>
 																<td class="hidden-480">测试人</td>
@@ -209,7 +209,7 @@
 																<td class="hidden-480">测试人</td>
 																<td>
 																	<div class="hidden-sm hidden-xs action-buttons">
-																		<a class="green" href="/stock/odo">
+																		<a class="green" href="/stock/do">
 																			<i class="ace-icon fa fa-check bigger-130"></i>
 																		</a>
 																	</div>
@@ -224,7 +224,7 @@
 														<span>															
 															<input type="text" placeholder="Search ..." style="width:300px;" class="nav-search-input" id="nav-search-input" autocomplete="off">
 															<button class="btn btn-sm btn-primary" style="margin-top:-4px;"> 查 询 </button>
-															<button class="btn btn-sm btn-primary" style="margin-top:-4px;" id="outstock"> 出库  </button>
+															<button class="btn btn-sm btn-primary" style="margin-top:-4px;" id="outstock"> 入库  </button>
 														</span>
 													</form>
 													
@@ -755,7 +755,7 @@
 				*/
 				
 				$("#outstock").click(function(){
-					location.href = "/stock/odo";					
+					location.href = "/stock/do";					
 				});
 			
 			});
