@@ -71,6 +71,8 @@
 							<a href="#">主页</a>
 						</li>
 						
+						<li>资产入库</li>
+						
 						<li class="active">资产登记</li>
 						
 					</ul><!-- /.breadcrumb -->
@@ -490,7 +492,7 @@
 				$("#slider-eq > span.ui-slider-purple").slider('disable');//disable third item
 				
 				$('#id-input-file-1 , #id-input-file-2').ace_file_input({
-					no_file:'No File ...',
+					no_file:'没有选择 ...',
 					btn_choose:'Choose',
 					btn_change:'Change',
 					droppable:false,

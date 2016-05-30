@@ -465,7 +465,16 @@
 												</div>
 
 												<div id="messages" class="tab-pane fade">
-													
+													<input type="file" id="id-input-file-2">
+													<div class="clearfix form-actions">
+										<div class="col-md-offset-0 col-md-1">
+											<button class="btn btn-info" type="button">
+												<i class="ace-icon fa fa-check bigger-110"></i>
+												导入
+											</button>
+
+										</div>
+									</div>
 												</div>
 											</div>
 										</div>
@@ -656,9 +665,9 @@
 				$("#slider-eq > span.ui-slider-purple").slider('disable');//disable third item
 				
 				$('#id-input-file-1 , #id-input-file-2').ace_file_input({
-					no_file:'No File ...',
-					btn_choose:'Choose',
-					btn_change:'Change',
+					no_file:'没有文件  ...',
+					btn_choose:'浏览',
+					btn_change:'浏览',
 					droppable:false,
 					onchange:null,
 					thumbnail:false //| true | large
