@@ -49,7 +49,135 @@
 					</div>
 				</div><!-- /.sidebar-shortcuts -->
 				
-				<%@include file="include/menu.jspf" %>
+				<!--%@include file="include/menu.jspf" %-->
+				
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<ul class="nav nav-list">
+				
+					<li class="active open hsub">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-list"></i>
+							<span class="menu-text"> 资源管理
+							<span class="badge badge-primary">6</span>
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+						
+						<ul class="submenu">
+							<li class="">
+								<a href="/stock/register">
+									<i class="menu-icon fa fa-caret-right"></i>
+									资产登记
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="/stock/instock">
+									<i class="menu-icon fa fa-caret-right"></i>
+									资产入库
+								</a>
+
+								<b class="arrow"></b>
+							</li>							
+							
+							<li class="active">
+								<a href="/stock/outstock">
+									<i class="menu-icon fa fa-caret-right"></i>
+									资产出库
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="/stock/reinstock">
+									<i class="menu-icon fa fa-caret-right"></i>
+									资产再入库
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="">
+								<a href="/stock/search">
+									<i class="menu-icon fa fa-caret-right"></i>
+									资产查询
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+							
+							<li class="">
+								<a href="/stock/report">
+									<i class="menu-icon fa fa-caret-right"></i>
+									资产统计
+								</a>
+
+								<b class="arrow"></b>
+							</li>																					
+						</ul>
+					</li>
+					
+					<li class="">
+						<a href="#" class="dropdown-toggle">
+							<i class="menu-icon fa fa-cogs"></i>
+
+							<span class="menu-text">
+								系统管理
+
+								<!-- #section:basics/sidebar.layout.badge -->
+								<span class="badge badge-primary">3</span>
+
+								<!-- /section:basics/sidebar.layout.badge -->
+							</span>
+
+							<b class="arrow fa fa-angle-down"></b>
+						</a>
+
+						<b class="arrow"></b>
+
+						<ul class="submenu">
+							<li class="">
+								<a href="/stock/user">
+									<i class="menu-icon fa fa-caret-right"></i>
+									用户管理
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="/stock/permission">
+									<i class="menu-icon fa fa-caret-right"></i>
+									权限分配
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+							<li class="">
+								<a href="/stock/base">
+									<i class="menu-icon fa fa-caret-right"></i>
+									基表维护
+								</a>
+
+								<b class="arrow"></b>
+							</li>
+
+						</ul>
+					</li>
+				</ul><!-- /.nav-list -->
+
+				<!-- #section:basics/sidebar.layout.minimize -->
+				<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+					<i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+				</div>
+<!-- /.navbar-collapse -->
 
 				<!-- /section:basics/sidebar.layout.minimize -->
 				<script type="text/javascript">
