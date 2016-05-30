@@ -49,7 +49,7 @@
 									<span class="red"></span>
 									<span class="gray" id="id-text2">设备资源管理系统</span>
 								</h1>
-								<h4 class="blue" id="id-company-text">&copy; 电力电子技术研究所</h4>
+								<h4 class="blue" id="id-company-text">&copy; 舰船综合电力技术国防科技重点实验室</h4>
 							</div>
 
 							<div class="space-6"></div>
