@@ -63,7 +63,7 @@ CREATE TABLE `assets` (
   `vendor` varchar(255) DEFAULT NULL,
   `factory_num` varchar(255) DEFAULT NULL,
   `factory_date` date DEFAULT NULL,
-  `amout` int(20) DEFAULT NULL,
+  `amount` int(20) DEFAULT NULL,
   `cost` int(20) DEFAULT NULL,
   `quantity` int(20) NOT NULL,
   `stock_quantity` int(20) NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE `assets` (
   `description` longtext,
   `available` bit(1) NOT NULL,
   `record_date` date DEFAULT NULL,
-  `create_user` date NOT NULL,
+  `create_user` varchar(255) DEFAULT NULL,
   `create_time` date NOT NULL,
   `update_time` date DEFAULT NULL,
   PRIMARY KEY (`id`)
