@@ -255,13 +255,9 @@
 
 										<div class="col-sm-11">
 											<div class="radio" style="margin-left:-20px;margin-top:-2px;">
-												<label>
-													<input name="form-field-radio" type="radio" class="ace" checked=checked />
-													<span class="lbl" style="font-size:12px;"> 设备工具仪器 </span>
-												</label>
-												<label>
-													<input name="form-field-radio" type="radio" class="ace">
-													<span class="lbl" style="font-size:12px;"> 低值易耗品</span>
+												<label ng-repeat="AssetsType in AssetsTypes">
+													<input name="form-field-radio" ng-model="assets.type" type="radio" class="ace" value="{{AssetsType.id}}" />
+													<span class="lbl" style="font-size:12px;" ng-bind="' ' + AssetsType.name + ' '"></span>
 												</label>
 											</div>
 										</div>
@@ -271,25 +267,21 @@
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-2"> 分  类 </label>
 
 										<div class="col-sm-3">											
-											<select id="form-field-2" placeholder="Username" class="col-xs-10 col-sm-12" >
-												<option> 请选择 </option>
-												<option> 探头 </option>
-												<option> 特殊仪器 </option>
-												<option> 示波器 </option>
-												<option> 检测仪器 </option>
+											<select id="form-field-2" ng-model="assets.category" placeholder="Username" class="col-xs-10 col-sm-12" ng-options="item.id as item.name for item in AssetsCategories">
+												<option value=""> 请选择 </option>
 											</select>
 										</div>
 										
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-3"> 设备编号 </label>
 
 										<div class="col-sm-3">
-											<input id="form-field-3" type="text" placeholder="设备编号" class="col-xs-10 col-sm-12" />
+											<input id="form-field-3" ng-model="assets.num" type="text" placeholder="设备编号" class="col-xs-10 col-sm-12" />
 										</div>
 										
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-4"> 设备名称 </label>
 
 										<div class="col-sm-3">
-											<input id="form-field-4" type="text" placeholder="设备名称" class="col-xs-10 col-sm-12" />
+											<input id="form-field-4" ng-model="assets.name" type="text" placeholder="设备名称" class="col-xs-10 col-sm-12" />
 										</div>
 									</div>
 
@@ -297,19 +289,19 @@
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-5"> 规格型号 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-5" placeholder="规格型号" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-5" ng-model="assets.model" placeholder="规格型号" class="col-xs-10 col-sm-12" />
 										</div>
 										
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-6"> 品 牌 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-6" placeholder="品牌" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-6" ng-model="assets.brand" placeholder="品牌" class="col-xs-10 col-sm-12" />
 										</div>
 										
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-7"> 供应商 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-7" placeholder="供应商" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-7" ng-model="assets.vendor" placeholder="供应商" class="col-xs-10 col-sm-12" />
 										</div>
 									</div>
 									
@@ -318,14 +310,14 @@
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-8"> 出厂编号 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-8" placeholder="出厂编号" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-8" ng-model="assets.factory_num" placeholder="出厂编号" class="col-xs-10 col-sm-12" />
 										</div>
 										
 										<label class="col-sm-1 control-label no-padding-right" for="id-date-picker-1"> 出厂日期 </label>
 
 										<div class="col-sm-3">
 											<div class="input-group">
-												<input class="form-control date-picker" id="id-date-picker-1" type="text" data-date-format="dd-mm-yyyy">
+												<input class="form-control date-picker" id="id-date-picker-1" ng-model="assets.factory_date" type="text" data-date-format="yyyy-mm-dd">
 												<span class="input-group-addon">
 													<i class="fa fa-calendar bigger-110"></i>
 												</span>
@@ -336,7 +328,7 @@
 
 										<div class="col-sm-3">
 											<div class="input-group">
-												<input class="form-control date-picker" id="id-date-picker-2" type="text" data-date-format="dd-mm-yyyy">
+												<input class="form-control date-picker" id="id-date-picker-2" type="text" ng-model="assets.record_date" data-date-format="yyyy-mm-dd">
 												<span class="input-group-addon">
 													<i class="fa fa-calendar bigger-110"></i>
 												</span>
@@ -348,19 +340,19 @@
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-10"> 单 价 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-10" placeholder="单价" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-10" ng-model="assets.cost" placeholder="单价" class="col-xs-10 col-sm-12" />
 										</div>
 										
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-11"> 数 量 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-11" placeholder="数量" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-11" ng-model="assets.quantity" placeholder="数量" class="col-xs-10 col-sm-12" />
 										</div>
 										
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-12"> 金 额 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-12" placeholder="金额" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-12" ng-model="assets.amount" placeholder="金额" class="col-xs-10 col-sm-12" />
 										</div>
 									</div>
 									
@@ -368,7 +360,7 @@
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-31"> 性能指标 </label>
 
 										<div class="col-sm-11">
-											<textarea id="form-field-31" style="height:120px;" placeholder="性能指标" class="col-xs-10 col-sm-12" ></textarea>
+											<textarea id="form-field-31" ng-model="assets.performance_indices" style="height:120px;" placeholder="性能指标" class="col-xs-10 col-sm-12" ></textarea>
 										</div>
 									</div>
 									
@@ -376,19 +368,19 @@
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-51"> 平 台 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-51" placeholder="平台" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-51" ng-model="assets.platform" placeholder="平台" class="col-xs-10 col-sm-12" />
 										</div>
 										
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-52"> 负责人 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-52" placeholder="负责人" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-52" ng-model="assets.manager" placeholder="负责人" class="col-xs-10 col-sm-12" />
 										</div>
 										
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-53"> 申购人 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-53" placeholder="申购人" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-53" ng-model="assets.requisitioners" placeholder="申购人" class="col-xs-10 col-sm-12" />
 										</div>
 									</div>
 									
@@ -396,13 +388,13 @@
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-61"> 领用人  </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-61" placeholder="领用人" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-61" ng-model="assets.manager" placeholder="领用人" class="col-xs-10 col-sm-12" />
 										</div>
 										
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-62"> 保管人 </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-62" placeholder="保管人" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-62" ng-model="assets.custodian" placeholder="保管人" class="col-xs-10 col-sm-12" />
 										</div>
 										
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-63"> 发 布 </label>
@@ -410,7 +402,7 @@
 										<div class="col-sm-3">
 											<div style="margin-left:2px;margin-top:5px;">
 												<label>
-													<input name="switch-field-1" class="ace ace-switch ace-switch-2" type="checkbox">
+													<input name="switch-field-1" ng-model="assets.available" class="ace ace-switch ace-switch-2" type="checkbox">
 													<span class="lbl"></span>
 												</label>
 											</div>
@@ -431,7 +423,7 @@
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-32"> 附加产品 </label>
 
 										<div class="col-sm-11">
-											<textarea id="form-field-32" style="height:120px;" placeholder="附加产品" class="col-xs-10 col-sm-12" ></textarea>
+											<textarea id="form-field-32" style="height:120px;" ng-model="assets.additional_product" placeholder="附加产品" class="col-xs-10 col-sm-12" ></textarea>
 										</div>
 									</div>
 									
@@ -439,19 +431,19 @@
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-32"> 备注 </label>
 
 										<div class="col-sm-11">
-											<textarea id="form-field-32" style="height:120px;" placeholder="备注" class="col-xs-10 col-sm-12" ></textarea>
+											<textarea id="form-field-32" style="height:120px;" ng-model="assets.description" placeholder="备注" class="col-xs-10 col-sm-12" ></textarea>
 										</div>
 									</div>
 									
 									<div class="clearfix form-actions">
 										<div class="col-md-offset-3 col-md-9">
-											<button class="btn btn-info" type="button">
+											<button class="btn btn-info" type="button" ng-click="saveAssets()">
 												<i class="ace-icon fa fa-check bigger-110"></i>
 												保存
 											</button>
 
 											&nbsp; &nbsp; &nbsp;
-											<button class="btn" type="reset">
+											<button class="btn" type="reset" ng-click="cancelAssets()">
 												<i class="ace-icon fa fa-undo bigger-110"></i>
 												取消
 											</button>
@@ -523,9 +515,10 @@
 		<script src="../assets/js/jquery-ui.custom.min.js"></script>
 		<script src="../assets/js/jquery.ui.touch-punch.min.js"></script>
 		<script src="../assets/js/chosen.jquery.min.js"></script>
-		<script src="../assets/js/fuelux/fuelux.spinner.min.js"></script>
+		<script src="../assets/js/fuelux/fuelux.spinner.min.js"></script>		
 		<script src="../assets/js/date-time/bootstrap-datepicker.min.js"></script>
 		<script src="../assets/js/date-time/bootstrap-timepicker.min.js"></script>
+		<script src="../assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js" charset="UTF-8"></script>
 		<script src="../assets/js/date-time/moment.min.js"></script>
 		<script src="../assets/js/date-time/daterangepicker.min.js"></script>
 		<script src="../assets/js/date-time/bootstrap-datetimepicker.min.js"></script>
@@ -736,12 +729,23 @@
 				//datepicker plugin
 				$('.date-picker').datepicker({
 					autoclose: true,
-					todayHighlight: true
+					todayHighlight: true,
+					language: 'zh-CN'
 				})
 				//show datepicker when clicking on the icon
 				.next().on(ace.click_event, function(){
 					$(this).prev().focus();
 				});
+				
+				function getNowDate() {
+					var date = new Date();
+					var year = date.getFullYear();
+					var month = date.getMonth() + 1;
+					var day = date.getDate();
+					return year + "-" + (month<10?"0" + month:month) + "-" + (day<10?"0" + day:day);
+				}
+				
+				$('#id-date-picker-2').datepicker('update', new Date());
 			
 				//or change it into a date range picker
 				$('.input-daterange').datepicker({autoclose:true});
@@ -888,14 +892,77 @@
 		<script src="../docs/assets/js/language/html.js"></script>
 		<script src="../docs/assets/js/language/css.js"></script>
 		<script src="../docs/assets/js/language/javascript.js"></script>
-		<script>
-		angular.module('app', [])
-		.controller('appCtrl', ['$scope', 
-			function($scope) {
-				
-			}
-		]);
-		</script>
+<script>
+angular.module('app', ['ngResource'])
+.factory('appDAO', function($resource) {
+	return {
+		getAllAssetsType:function() {
+			return $resource('/api/get_all_assets_type.json');
+		},
+		getAllCategories:function() {
+			return $resource('/api/get_all_category.json');
+		},
+		createAssets: function() {
+			return $resource('/api/create_assets.json');
+		}
+	};	
+})
+.controller('appCtrl', ['$scope', 'appDAO', 
+	function($scope, appDAO) {
+	
+		$scope.assets = {
+			"type":1,
+			"category":null,
+			"num":"",
+			"name":"",
+			"model":"",
+			"brand":"",
+			"vendor":"",
+			"factory_num":"",
+			"factory_date":"",
+			"record_date":"",
+			"amount":0,
+			"cost":0,
+			"quantity":0,
+			"performance_indices":"",
+			"additional_product":"",
+			"platform":"",
+			"manager":"",
+			"recipients":"",
+			"requisitioners":"",
+			"custodian":"",
+			"description":"",
+			"available": false
+		};
+	
+		$scope.getAllAssetsType = function() {
+			appDAO.getAllAssetsType().get(function(data) {
+				$scope.AssetsTypes = data.AssetsTypes;
+			});
+		};
 		
-	</body>
+		$scope.getAllCategories = function() {
+			appDAO.getAllCategories().get(function(data) {
+				$scope.AssetsCategories = data.AssetsCategories;
+			});
+		};
+		
+		$scope.saveAssets = function() {			
+			appDAO.createAssets().save($scope.assets, function(data){
+				if (data.success) {
+					location.href = "/stock/register";
+				}
+			});
+		};
+		
+		$scope.cancelAssets = function() {
+			location.href = "/stock/register";
+		};
+		
+		$scope.getAllCategories();
+		$scope.getAllAssetsType();
+	}
+]);
+</script>
+</body>
 </html>

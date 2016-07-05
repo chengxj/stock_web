@@ -220,6 +220,9 @@
 									<div class="col-xs-12">
 													<form class="form-search">
 														<span>															
+															123：<input type="text" placeholder="Search ..." style="width:300px;" class="nav-search-input" id="nav-search-input" autocomplete="off">
+															<input type="text" placeholder="Search ..." style="width:300px;" class="nav-search-input" id="nav-search-input" autocomplete="off">
+															
 															<input type="text" placeholder="Search ..." style="width:300px;" class="nav-search-input" id="nav-search-input" autocomplete="off">
 															<button class="btn btn-sm btn-primary" style="margin-top:-4px;"> 查 询 </button>
 														</span>

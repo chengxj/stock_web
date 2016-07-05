@@ -19,18 +19,18 @@ public class Assets implements Serializable, DBObject {
 	@Id
 	@GeneratedValue
 	private Long id;
-	private Long type;
-	private Long category;
-	private String brand;
-	private String num;
-	private String name;
+	private Long type;// 类型
+	private Long category;// 分类 
+	private String brand;// 品牌
+	private String num;// 编号
+	private String name;// 名称
 	private String model;
 	private String vendor;
 	private String factory_num;
 	@Temporal(javax.persistence.TemporalType.DATE)
 	private Date factory_date;
-	private String amount;
-	private String cost;
+	private Long amount;
+	private Long cost;
 	private Long quantity;
 	private Long stock_quantity;
 	private String performance_indices;
@@ -127,19 +127,19 @@ public class Assets implements Serializable, DBObject {
 		this.factory_date = factory_date;
 	}
 
-	public String getAmount() {
+	public Long getAmount() {
 		return amount;
 	}
 
-	public void setAmount(String amount) {
+	public void setAmount(Long amount) {
 		this.amount = amount;
 	}
 
-	public String getCost() {
+	public Long getCost() {
 		return cost;
 	}
 
-	public void setCost(String cost) {
+	public void setCost(Long cost) {
 		this.cost = cost;
 	}
 

@@ -245,6 +245,11 @@
 											</div>
 										</div>
 										
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-98"> 采购人 </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-98" value="肖欢" placeholder="采购人" class="col-xs-10 col-sm-12" />
+										</div>
 										
 									</div>
 									

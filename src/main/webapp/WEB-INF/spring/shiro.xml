@@ -67,6 +67,7 @@
 				/stock/login = anon
 				/stock = roles[normal]
 				/stock/** = roles[normal]
+				/api/img/upload = anon	
 				/api/** = roles[normal]				
 			</value>
 		</property>

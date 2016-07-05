@@ -7,6 +7,8 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.stock.entity.Activities;
+import com.stock.entity.AssetsCategory;
+import com.stock.entity.AssetsType;
 import com.stock.entity.Registration;
 import com.stock.entity.common.User;
 
@@ -27,6 +29,20 @@ public class SearchDao {
 	public Activities getActivitiesById(long id) {
 		String hql = "from Activities where id = :uuid";
 		return entityManager.createQuery(hql, Activities.class).setParameter("uuid", id).getSingleResult();
+	}
+	
+	/**
+	 * 获取所有类型
+	 * @return
+	 */
+	public List<AssetsType> getAllAssetsType() {
+		String hql = "from AssetsType";
+		return entityManager.createQuery(hql, AssetsType.class).getResultList();
+	}
+	
+	public List<AssetsCategory> getAllAssetsCategory() {
+		String hql = "from AssetsCategory";
+		return entityManager.createQuery(hql, AssetsCategory.class).getResultList();
 	}
 
 	/**
