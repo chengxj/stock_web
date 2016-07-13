@@ -11,6 +11,7 @@
 		<!-- bootstrap & fontawesome -->
 		<link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="../assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="../assets/css/multiple-select.css" />
 		
 		<!-- page specific plugin styles -->
 		<link rel="stylesheet" href="../assets/css/jquery-ui.custom.min.css" />
@@ -47,8 +48,7 @@
 		
 		<script type="text/javascript" src="../assets/js/angular.min.js"></script>
     	<script type="text/javascript" src="../assets/js/angular-resource.min.js"></script>
-		
-	</head>
+	</head>	
 	<c:choose>
     <c:when test="${not empty ngController}"><body ng-controller="${ngController}" class="no-skin"></c:when>
     <c:otherwise><body class="no-skin"></c:otherwise>

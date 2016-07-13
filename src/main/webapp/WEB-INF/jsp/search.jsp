@@ -219,13 +219,30 @@
 								<div class="row">
 									<div class="col-xs-12">
 													<form class="form-search">
-														<span>															
-															123：<input type="text" placeholder="Search ..." style="width:300px;" class="nav-search-input" id="nav-search-input" autocomplete="off">
-															<input type="text" placeholder="Search ..." style="width:300px;" class="nav-search-input" id="nav-search-input" autocomplete="off">
-															
-															<input type="text" placeholder="Search ..." style="width:300px;" class="nav-search-input" id="nav-search-input" autocomplete="off">
-															<button class="btn btn-sm btn-primary" style="margin-top:-4px;"> 查 询 </button>
+														<span>
+														类型：
+														<select id="types" multiple="multiple" ></select>
+														&nbsp;分类：
+														<select id="categories" multiple="multiple" ></select>
+														&nbsp;关键字：<input type="text" id="key" placeholder="关键字 ..." style="width:200px;" class="nav-search-input" id="nav-search-input" autocomplete="off">
+														<button class="btn btn-sm btn-primary" style="margin-top:-4px;margin-left:5px;"> 查 询 </button>
 														</span>
+													</form>
+													<form class="form-search" style="margin-top:5px;margin-bottom:45px;">
+														<div style="float:left;margin-top:8px;">开始：</div>														
+														<div class="input-group" style="width:200px;float:left;margin-left:3px;">
+															<input class="form-control date-picker" id="begin" type="text" data-date-format="yyyy-mm-dd">
+															<span class="input-group-addon">
+																<i class="fa fa-calendar bigger-110"></i>
+															</span>
+														</div>
+														<div style="float:left;margin-top:8px;">&nbsp;&nbsp;结束：</div>														
+														<div class="input-group" style="width:200px;float:left;margin-left:4px;">
+															<input class="form-control date-picker" id="end" type="text" data-date-format="yyyy-mm-dd">
+															<span class="input-group-addon">
+																<i class="fa fa-calendar bigger-110"></i>
+															</span>
+														</div>														
 													</form>
 													
 													<div class="space-4"></div>
@@ -402,40 +419,141 @@
 		<!-- ace scripts -->
 		<script src="../assets/js/ace-elements.min.js"></script>
 		<script src="../assets/js/ace.min.js"></script>
+		<script type="text/javascript" src="../assets/js/multiple-select.js"></script>
+		<script src="../assets/js/date-time/bootstrap-datepicker.min.js"></script>
+		<script src="../assets/js/date-time/bootstrap-timepicker.min.js"></script>
+		<script src="../assets/js/date-time/locales/bootstrap-datepicker.zh-CN.js" charset="UTF-8"></script>
 		
-		<script>
-		jQuery(function($) {
-			$(document).on('click', 'th input:checkbox' , function(){
-				var that = this;
-				$(this).closest('table').find('tr > td:first-child input:checkbox')
-				.each(function(){
-					this.checked = that.checked;
-					$(this).closest('tr').toggleClass('selected');
-				});
-			});
+<script>
+jQuery(function($) {
+	$(document).on('click', 'th input:checkbox' , function(){
+		var that = this;
+		$(this).closest('table').find('tr > td:first-child input:checkbox')
+		.each(function(){
+			this.checked = that.checked;
+			$(this).closest('tr').toggleClass('selected');
 		});
+	});
+	
+	$('.date-picker').datepicker({
+		autoclose: true,
+		todayHighlight: true,
+		language: 'zh-CN'
+	}).next().on(ace.click_event, function(){
+		$(this).prev().focus();
+	});
+});
+
+angular.module('app', ['ngResource'])
+.factory('appDAO', function($resource) {
+	return {
+		getAllAssetsType:function() {
+			return $resource('/api/get_all_assets_type.json');
+		},
+		getAllCategories:function() {
+			return $resource('/api/get_all_category.json');
+		},
+		getActivities:function() {
+			return $resource('/api/search_activities.json');
+		}
+  	};	
+})
+.controller('appCtrl', ['$scope', 'appDAO', 
+	function($scope, appDAO) {
+	
+		$scope.query = {
+			"type":[],
+			"category":[],
+			"key":""
+		};
 		
-		angular.module('app', ['ngResource'])
-		.factory('activityDAO', function($resource) {
-			return {
-						getActivities:function() {
-							return $resource('/api/search_activities.json');
-						}
-				   };	
-		})
-		.controller('appCtrl', ['$scope', 'activityDAO', 
-			function($scope, activityDAO) {
-				
-				$scope.searchActivities = function(searchTerm, index) {
-					activityDAO.getActivities().save({searchTerm:searchTerm, index:index}, function(data) {
-						$scope.data = data;
-					});
-				};
-				
-				$scope.searchActivities(null, 0);
-				
-			}
-		]);
-		</script>
-	</body>
+		$scope.searchActivities = function(searchTerm, index) {
+			appDAO.getActivities().save({searchTerm:searchTerm, index:index}, function(data) {
+				$scope.data = data;
+			});
+		};
+		
+		$scope.getAllAssetsType = function() {
+			appDAO.getAllAssetsType().get(function(data) {
+				$scope.AssetsTypes = data.AssetsTypes;
+			});
+		};
+		
+		$scope.getAllCategories = function() {
+			appDAO.getAllCategories().get(function(data) {
+				$scope.AssetsCategories = data.AssetsCategories;
+			});
+		};
+		
+		$scope.searchActivities(null, 0);
+		$scope.getAllCategories();
+		$scope.getAllAssetsType();
+		
+	}
+]);
+
+</script>
+
+<script>
+$(function() {
+	$.ajax( {  
+		url:'/api/get_all_assets_type',
+	    type:'get',  
+	    cache: false,  
+	    dataType: 'json',  
+	    success:function(data) {
+	    	for (var i = 0; i < data.AssetsTypes.length; i++) {
+     	  		var type = data.AssetsTypes[i];
+     	  		var html = "<option value='" + type.id + "'>&nbsp;" + type.name + "</option>";
+          	    $("#types").append(html);
+     	  	}
+	    	$("#types").multipleSelect({
+                width: '100%',
+          		filter: true,
+          		animate: 'slide',
+          		selectAll: true,
+          		placeholder: "请选择类型",
+          		selectAllText: ' 全选 ',
+                allSelected: ' 全部 ',
+                width: "200px",
+                countSelected: '# of % selected',
+                noMatchesFound: '无匹配项',
+            });    
+	    },  
+	    error: function(data) {
+	    	 
+	    }  
+	});
+	
+	$.ajax( {  
+		url:'/api/get_all_category',
+	    type:'get',  
+	    cache: false,  
+	    dataType: 'json',  
+	    success:function(data) {
+	    	for (var i = 0; i < data.AssetsCategories.length; i++) {
+     	  		var category = data.AssetsCategories[i];
+     	  		var html = "<option value='" + category.id + "'>&nbsp;" + category.name + "</option>";
+          	    $("#categories").append(html);
+     	  	}
+	    	$("#categories").multipleSelect({
+                width: '100%',
+          		filter: true,
+          		animate: 'slide',
+          		selectAll: true,
+          		placeholder: "请选择分类",
+          		selectAllText: ' 全选 ',
+                allSelected: ' 全部 ',
+                width:"200px",
+                countSelected: '# of % selected',
+                noMatchesFound: '无匹配项',
+            });    
+	    },  
+	    error: function(data) {
+	    	 
+	    }  
+	});
+});	
+</script>
+</body>
 </html>

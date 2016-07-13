@@ -964,5 +964,6 @@ angular.module('app', ['ngResource'])
 	}
 ]);
 </script>
+
 </body>
 </html>
