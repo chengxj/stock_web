@@ -7,8 +7,10 @@ import javax.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.stock.entity.Activities;
+import com.stock.entity.Assets;
 import com.stock.entity.AssetsCategory;
 import com.stock.entity.AssetsType;
+import com.stock.entity.Order;
 import com.stock.entity.Registration;
 import com.stock.entity.common.User;
 
@@ -21,14 +23,29 @@ public class SearchDao {
 
 	private static int pageSize = 10;
 
-	/**
-	 * 
-	 * @param id
-	 * @return
-	 */
 	public Activities getActivitiesById(long id) {
 		String hql = "from Activities where id = :uuid";
 		return entityManager.createQuery(hql, Activities.class).setParameter("uuid", id).getSingleResult();
+	}
+	
+	/**
+	 * 
+	 * @param oid
+	 * @return
+	 */
+	public Order getOrderById(long oid) {
+		String hql = "from Order where id = :oid";
+		return entityManager.createQuery(hql, Order.class).setParameter("oid", oid).getSingleResult();
+	}
+	
+	/**
+	 * 
+	 * @param oid
+	 * @return
+	 */
+	public List<Assets> getAssetsByOrderId(long oid) {
+		String hql = "from Assets where id in (select assets_id from OrderAssets where order_id=:oid)";
+		return entityManager.createQuery(hql, Assets.class).setParameter("oid", oid).getResultList();
 	}
 	
 	/**

@@ -13,10 +13,14 @@ import com.stock.dto.ActivitiesDTO;
 import com.stock.dto.AssetsCategoryDTO;
 import com.stock.dto.AssetsDTO;
 import com.stock.dto.AssetsTypeDTO;
+import com.stock.dto.InStockDTO;
+import com.stock.dto.OrderDTO;
 import com.stock.dto.RegistrationDTO;
 import com.stock.dto.RegistrationDetailDTO;
 import com.stock.request.ActivitiesRequest;
 import com.stock.request.AssetsRequest;
+import com.stock.request.InStockRequest;
+import com.stock.request.OrderRequest;
 import com.stock.request.RegistrationDetailRequest;
 import com.stock.request.RegistrationRequest;
 import com.stock.service.CommonService;
@@ -45,6 +49,18 @@ public class ApiController {
 		 return commonService.createAssets(request);		 
 	 }
 	 
+	 @RequestMapping(value = "/api/create_order", method = RequestMethod.POST)
+	 @ResponseBody
+	 public OrderDTO createOrder(@RequestBody OrderRequest request) {
+		 return commonService.createOrder(request);		 
+	 }
+	 
+	 @RequestMapping(value = "/api/get_instock_detail", method = RequestMethod.POST)
+	 @ResponseBody
+	 public InStockDTO getInStockDetail(@RequestBody InStockRequest request) {
+		 return commonService.getInStockDetail(request);
+	 }
+	 	 
 	 @RequestMapping(value = "/api/search_activities", method = RequestMethod.POST)
 	 @ResponseBody
 	 public ActivitiesDTO searchActivities(@RequestBody ActivitiesRequest request) {

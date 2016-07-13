@@ -1,26 +1,27 @@
 package com.stock.service;
 
 import java.util.Date;
-
-import javax.persistence.Temporal;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.stock.dao.CommonDao;
 import com.stock.dao.SearchDao;
 import com.stock.dto.ActivitiesDTO;
 import com.stock.dto.AssetsCategoryDTO;
 import com.stock.dto.AssetsDTO;
 import com.stock.dto.AssetsTypeDTO;
+import com.stock.dto.InStockDTO;
+import com.stock.dto.OrderDTO;
 import com.stock.dto.RegistrationDTO;
 import com.stock.dto.RegistrationDetailDTO;
 import com.stock.entity.Assets;
+import com.stock.entity.Order;
 import com.stock.entity.Registration;
 import com.stock.request.ActivitiesRequest;
 import com.stock.request.AssetsRequest;
+import com.stock.request.InStockRequest;
+import com.stock.request.OrderRequest;
 import com.stock.request.RegistrationDetailRequest;
 import com.stock.request.RegistrationRequest;
 
@@ -153,6 +154,32 @@ public class CommonService {
 		obj.setCreate_time(new Date());		
 		commonDao.saveDBOject(obj);
 		return dtoHelper.buildAssetsDTO(obj);
+	}
+
+	public InStockDTO getInStockDetail(InStockRequest request) {
+		InStockDTO dto = new InStockDTO();
+		dto.success = true;
+		dto.order = searchDao.getOrderById(request.id);
+		dto.assets = searchDao.getAssetsByOrderId(dto.order.getId());
+		return dto;
+	}
+
+	public OrderDTO createOrder(OrderRequest request) {
+		OrderDTO dto = new OrderDTO();
+		Order obj = new Order();
+		obj.setOrder_num(request.order_num);
+		obj.setStatus(request.status);
+		obj.setLibrary_collar(request.library_collar);
+		obj.setDelivery_time(new Date());
+		obj.setReception_time(new Date());
+		obj.setAccepter(request.accepter);
+		obj.setAcceptance_num(request.acceptance_num);
+		obj.setIncoming_leader(request.incoming_leader);
+		obj.setStorage_time(new Date());
+		commonDao.saveDBOject(obj);
+		dto.order = obj;
+		dto.success = true;
+		return dto;
 	}
 
 }

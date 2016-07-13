@@ -824,14 +824,18 @@
 		<script src="../docs/assets/js/language/html.js"></script>
 		<script src="../docs/assets/js/language/css.js"></script>
 		<script src="../docs/assets/js/language/javascript.js"></script>
-		<script>
-		angular.module('app', [])
-		.controller('appCtrl', ['$scope', 
-			function($scope) {
-				
-			}
-		]);
-		</script>
+<script>
+var id = '${id}';
+
+angular.module('app', [])
+.controller('appCtrl', ['$scope', 
+	function($scope) {
+	
+	
+		
+	}
+]);
+</script>
 		
 	</body>
 </html>
