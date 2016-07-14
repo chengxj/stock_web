@@ -202,7 +202,7 @@
 							<a href="#">主页</a>
 						</li>
 						
-						<li class="active">资产检索</li>
+						<li class="active">资产查询</li>
 						
 					</ul><!-- /.breadcrumb -->
 
@@ -225,20 +225,20 @@
 														&nbsp;分类：
 														<select id="categories" multiple="multiple" ></select>
 														&nbsp;关键字：<input type="text" id="key" placeholder="关键字 ..." style="width:200px;" class="nav-search-input" id="nav-search-input" autocomplete="off">
-														<button class="btn btn-sm btn-primary" style="margin-top:-4px;margin-left:5px;"> 查 询 </button>
+														<button class="btn btn-sm btn-primary" style="margin-top:-4px;margin-left:5px;" ng-click="searchAssets(0)"> 查 询 </button>
 														</span>
 													</form>
 													<form class="form-search" style="margin-top:5px;margin-bottom:45px;">
 														<div style="float:left;margin-top:8px;">开始：</div>														
 														<div class="input-group" style="width:200px;float:left;margin-left:3px;">
-															<input class="form-control date-picker" id="begin" type="text" data-date-format="yyyy-mm-dd">
+															<input class="form-control date-picker" id="begin" type="text" data-date-format="yyyy-mm-dd" />
 															<span class="input-group-addon">
 																<i class="fa fa-calendar bigger-110"></i>
 															</span>
 														</div>
 														<div style="float:left;margin-top:8px;">&nbsp;&nbsp;结束：</div>														
 														<div class="input-group" style="width:200px;float:left;margin-left:4px;">
-															<input class="form-control date-picker" id="end" type="text" data-date-format="yyyy-mm-dd">
+															<input class="form-control date-picker" id="end" type="text" data-date-format="yyyy-mm-dd" />
 															<span class="input-group-addon">
 																<i class="fa fa-calendar bigger-110"></i>
 															</span>
@@ -248,13 +248,7 @@
 													<div class="space-4"></div>
 													<table id="sample-table-1" class="table table-striped table-bordered table-hover">
 											<thead>
-												<tr>
-													<th class="center">
-														<label class="position-relative">
-															<input type="checkbox" class="ace">
-															<span class="lbl"></span>
-														</label>
-													</th>
+												<tr>													
 													<th>名称</th>
 													<th>型号规格</th>
 													<th class="hidden-480">单位</th>
@@ -271,106 +265,25 @@
 												</tr>
 											</thead>
 											<tbody>
-												<tr>
-													<td class="center">
-														<label class="position-relative">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"></span>
-														</label>
-													</td>
+												<tr ng-repeat="asset in AssetsDTO.assets">
 													<td>
-														<a href="#">电容</a>
+														<a href="#" ng-bind="asset.name"></a>
 													</td>
-													<td>0.01uF/6300VAC(57*29*45mm)</td>
-													<td class="hidden-480">只</td>
-													<td>6</td>
+													<td ng-bind="asset.model"></td>
+													<td class="hidden-480" ng-bind="asset.unit"></td>
+													<td ng-bind="asset.quantity"></td>
 													<td class="hidden-480">
-														<span class="label label-sm label-warning">100</span>
-													</td>
-													<td class="hidden-480">
-														<span class="label label-sm label-warning">600</span>
-													</td>
-													<td>新容</td>
-													<td>公司</td>
-													<td>2016年5月24号</td>
-													<td>测试人</td>
-													<td>负责人</td>													
-												</tr>
-												<tr>
-													<td class="center">
-														<label class="position-relative">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"></span>
-														</label>
-													</td>
-													<td>
-														<a href="#">电容</a>
-													</td>
-													<td>0.01uF/6300VAC(57*29*45mm)</td>
-													<td class="hidden-480">只</td>
-													<td>6</td>
-													<td class="hidden-480">
-														<span class="label label-sm label-warning">100</span>
+														<span class="label label-sm label-warning" ng-bind="asset.cost">100</span>
 													</td>
 													<td class="hidden-480">
-														<span class="label label-sm label-warning">600</span>
+														<span class="label label-sm label-warning" ng-bind="asset.amount">600</span>
 													</td>
-													<td>新容</td>
-													<td>公司</td>
-													<td>2016年5月24号</td>
-													<td>测试人</td>
-													<td>负责人</td>													
-												</tr>
-												<tr>
-													<td class="center">
-														<label class="position-relative">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"></span>
-														</label>
-													</td>
-													<td>
-														<a href="#">电容</a>
-													</td>
-													<td>0.01uF/6300VAC(57*29*45mm)</td>
-													<td class="hidden-480">只</td>
-													<td>6</td>
-													<td class="hidden-480">
-														<span class="label label-sm label-warning">100</span>
-													</td>
-													<td class="hidden-480">
-														<span class="label label-sm label-warning">600</span>
-													</td>
-													<td>新容</td>
-													<td>公司</td>
-													<td>2016年5月24号</td>
-													<td>测试人</td>
-													<td>负责人</td>													
-												</tr>
-												<tr>
-													<td class="center">
-														<label class="position-relative">
-															<input type="checkbox" class="ace" />
-															<span class="lbl"></span>
-														</label>
-													</td>
-													<td>
-														<a href="#">电容</a>
-													</td>
-													<td>0.01uF/6300VAC(57*29*45mm)</td>
-													<td class="hidden-480">只</td>
-													<td>6</td>
-													<td class="hidden-480">
-														<span class="label label-sm label-warning">100</span>
-													</td>
-													<td class="hidden-480">
-														<span class="label label-sm label-warning">600</span>
-													</td>
-													<td>新容</td>
-													<td>公司</td>
-													<td>2016年5月24号</td>
-													<td>测试人</td>
-													<td>负责人</td>													
-												</tr>
+													<td ng-bind="asset.brand"></td>
+													<td ng-bind="asset.vendor"></td>
+													<td ng-bind="asset.record_date"></td>
+													<td ng-bind="asset.requisitioners"></td>
+													<td ng-bind="asset.manager"></td>													
+												</tr>												
 											</tbody>
 										</table>
 																			
@@ -455,21 +368,38 @@ angular.module('app', ['ngResource'])
 		},
 		getActivities:function() {
 			return $resource('/api/search_activities.json');
+		},
+		searchAssets:function() {
+			return $resource('/api/search_assets.json');
 		}
   	};	
 })
 .controller('appCtrl', ['$scope', 'appDAO', 
-	function($scope, appDAO) {
-	
-		$scope.query = {
-			"type":[],
-			"category":[],
-			"key":""
-		};
+	function($scope, appDAO) {	
 		
 		$scope.searchActivities = function(searchTerm, index) {
 			appDAO.getActivities().save({searchTerm:searchTerm, index:index}, function(data) {
 				$scope.data = data;
+			});
+		};
+		
+		$scope.searchAssets = function(index) {
+			$scope.query = {
+				"type": [],
+				"category": [],
+				"key": "",
+				"begin": "",
+				"end": "",
+				"index":0
+			};
+			$scope.query['type'] = $("#types").val(); 
+			$scope.query['category'] = $("#categories").val();
+			$scope.query['key'] = $("#key").val(); 
+			$scope.query['begin'] = $("#begin").val(); 
+			$scope.query['end'] = $("#end").val(); 
+			$scope.query['index'] = index;
+			appDAO.searchAssets().save($scope.query, function(data) {
+				$scope.AssetsDTO = data;
 			});
 		};
 		

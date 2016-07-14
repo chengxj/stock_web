@@ -1,5 +1,6 @@
 package com.stock.dao;
 
+import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -13,6 +14,7 @@ import com.stock.entity.AssetsType;
 import com.stock.entity.Order;
 import com.stock.entity.Registration;
 import com.stock.entity.common.User;
+import com.stock.request.SearchRequest;
 
 @Repository
 @Transactional(noRollbackFor = { NoResultException.class })
@@ -60,6 +62,26 @@ public class SearchDao {
 	public List<AssetsCategory> getAllAssetsCategory() {
 		String hql = "from AssetsCategory";
 		return entityManager.createQuery(hql, AssetsCategory.class).getResultList();
+	}
+	
+	private String getSearchAssetsJql(SearchRequest request) {
+		StringBuffer hql = new StringBuffer("from Assets");
+		if (request != null) {
+			
+		}
+//		public List<String> type;
+//		public List<String> category;
+//		public String key;
+//		public Date begin;
+//		public Date end;
+//		public int index;
+		return hql.toString();
+	}
+	
+	public List<Assets> searchAssets(SearchRequest request) {
+		String hql = getSearchAssetsJql(request); 
+		return entityManager.createQuery(hql, Assets.class).setFirstResult(request.index).setMaxResults(pageSize)
+				.getResultList();
 	}
 
 	/**
@@ -124,6 +146,15 @@ public class SearchDao {
 			} else {
 				hql = "select count(*) From Activities where title like '%" + searchTerm + "%'";
 			}
+			return entityManager.createQuery(hql, Long.class).getSingleResult().intValue();
+		} catch (NoResultException e) {
+			return 0;
+		}
+	}
+
+	public int getAssetsCount(SearchRequest request) {
+		try {
+			String hql = "select count(*) " + getSearchAssetsJql(request); 
 			return entityManager.createQuery(hql, Long.class).getSingleResult().intValue();
 		} catch (NoResultException e) {
 			return 0;

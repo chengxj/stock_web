@@ -15,6 +15,7 @@ import com.stock.dto.InStockDTO;
 import com.stock.dto.OrderDTO;
 import com.stock.dto.RegistrationDTO;
 import com.stock.dto.RegistrationDetailDTO;
+import com.stock.dto.SearchDTO;
 import com.stock.entity.Assets;
 import com.stock.entity.Order;
 import com.stock.entity.Registration;
@@ -24,6 +25,7 @@ import com.stock.request.InStockRequest;
 import com.stock.request.OrderRequest;
 import com.stock.request.RegistrationDetailRequest;
 import com.stock.request.RegistrationRequest;
+import com.stock.request.SearchRequest;
 
 @Service
 public class CommonService {
@@ -139,6 +141,7 @@ public class CommonService {
 		obj.setAmount(request.amount);
 		obj.setCost(request.cost);
 		obj.setQuantity(request.quantity);
+		obj.setUnit(request.unit);
 		obj.setStock_quantity(request.quantity);
 		obj.setPerformance_indices(request.performance_indices);
 		obj.setAdditional_product(request.additional_product);
@@ -178,6 +181,14 @@ public class CommonService {
 		obj.setStorage_time(new Date());
 		commonDao.saveDBOject(obj);
 		dto.order = obj;
+		dto.success = true;
+		return dto;
+	}
+
+	public SearchDTO searchAssets(SearchRequest request) {
+		SearchDTO dto = new SearchDTO();
+		dto.count = searchDao.getAssetsCount(request);
+		dto.assets = searchDao.searchAssets(request);
 		dto.success = true;
 		return dto;
 	}

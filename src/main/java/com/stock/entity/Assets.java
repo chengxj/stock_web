@@ -33,6 +33,7 @@ public class Assets implements Serializable, DBObject {
 	private Long cost;
 	private Long quantity;
 	private Long stock_quantity;
+	private String unit;
 	private String performance_indices;
 	private String additional_product;
 	private String platform;
@@ -261,6 +262,14 @@ public class Assets implements Serializable, DBObject {
 
 	public void setUpdate_time(Date update_time) {
 		this.update_time = update_time;
+	}
+
+	public String getUnit() {
+		return unit;
+	}
+
+	public void setUnit(String unit) {
+		this.unit = unit;
 	}
 	
 }

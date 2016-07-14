@@ -67,6 +67,7 @@ CREATE TABLE `assets` (
   `cost` int(20) DEFAULT NULL,
   `quantity` int(20) NOT NULL,
   `stock_quantity` int(20) NOT NULL,
+  `unit` varchar(255) DEFAULT NULL,
   `performance_indices` longtext,
   `additional_product` longtext,
   `platform` longtext,

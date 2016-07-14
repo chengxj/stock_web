@@ -356,15 +356,14 @@
 										</div>
 									</div>
 									
-									<div class="form-group">
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-31"> 性能指标 </label>
-
-										<div class="col-sm-11">
-											<textarea id="form-field-31" ng-model="assets.performance_indices" style="height:120px;" placeholder="性能指标" class="col-xs-10 col-sm-12" ></textarea>
-										</div>
-									</div>
 									
 									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-101"> 单 位 </label>
+
+										<div class="col-sm-3">
+											<input type="text" id="form-field-101" ng-model="assets.unit" placeholder="单位" class="col-xs-10 col-sm-12" />
+										</div>										
+									
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-51"> 平 台 </label>
 
 										<div class="col-sm-3">
@@ -377,14 +376,15 @@
 											<input type="text" id="form-field-52" ng-model="assets.manager" placeholder="负责人" class="col-xs-10 col-sm-12" />
 										</div>
 										
+									</div>
+									
+									<div class="form-group">
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-53"> 申购人 </label>
 
 										<div class="col-sm-3">
 											<input type="text" id="form-field-53" ng-model="assets.requisitioners" placeholder="申购人" class="col-xs-10 col-sm-12" />
 										</div>
-									</div>
 									
-									<div class="form-group">
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-61"> 领用人  </label>
 
 										<div class="col-sm-3">
@@ -397,7 +397,7 @@
 											<input type="text" id="form-field-62" ng-model="assets.custodian" placeholder="保管人" class="col-xs-10 col-sm-12" />
 										</div>
 										
-										<label class="col-sm-1 control-label no-padding-right" for="form-field-63"> 发 布 </label>
+										<!--label class="col-sm-1 control-label no-padding-right" for="form-field-63"> 发 布 </label>
 
 										<div class="col-sm-3">
 											<div style="margin-left:2px;margin-top:5px;">
@@ -406,8 +406,18 @@
 													<span class="lbl"></span>
 												</label>
 											</div>
+										</div-->
+									</div>
+									
+									<div class="form-group">
+										<label class="col-sm-1 control-label no-padding-right" for="form-field-31"> 性能指标 </label>
+
+										<div class="col-sm-11">
+											<textarea id="form-field-31" ng-model="assets.performance_indices" style="height:120px;" placeholder="性能指标" class="col-xs-10 col-sm-12" ></textarea>
 										</div>
 									</div>
+									
+
 									
 									<div class="form-group">
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-61"> 图 片  </label>
@@ -924,6 +934,7 @@ angular.module('app', ['ngResource'])
 			"amount":0,
 			"cost":0,
 			"quantity":0,
+			"unit":"",
 			"performance_indices":"",
 			"additional_product":"",
 			"platform":"",
@@ -932,7 +943,7 @@ angular.module('app', ['ngResource'])
 			"requisitioners":"",
 			"custodian":"",
 			"description":"",
-			"available": false
+			"available": true
 		};
 	
 		$scope.getAllAssetsType = function() {

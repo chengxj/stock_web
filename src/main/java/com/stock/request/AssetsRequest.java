@@ -15,6 +15,7 @@ public class AssetsRequest {
 	public Long amount;
 	public Long cost;
 	public Long quantity;
+	public String unit;
 	public String performance_indices;
 	public String additional_product;
 	public String platform;
