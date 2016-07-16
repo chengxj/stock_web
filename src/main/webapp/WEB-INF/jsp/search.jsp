@@ -394,9 +394,9 @@ angular.module('app', ['ngResource'])
 			};
 			$scope.query['type'] = $("#types").val(); 
 			$scope.query['category'] = $("#categories").val();
-			$scope.query['key'] = $("#key").val(); 
-			$scope.query['begin'] = $("#begin").val(); 
-			$scope.query['end'] = $("#end").val(); 
+			$scope.query['key'] = $("#key").val();
+			$scope.query['begin'] = $scope.getFormateDate($("#begin").val()); 
+			$scope.query['end'] = $scope.getFormateDate($("#end").val()); 
 			$scope.query['index'] = index;
 			appDAO.searchAssets().save($scope.query, function(data) {
 				$scope.AssetsDTO = data;
@@ -419,6 +419,15 @@ angular.module('app', ['ngResource'])
 		$scope.getAllCategories();
 		$scope.getAllAssetsType();
 		
+		$scope.getFormateDate = function(date){
+			var returnDate = null;
+			if (date != null) {
+				var formateDate = new Date(date);
+				returnDate = new Date(formateDate.getFullYear(), formateDate.getMonth(), formateDate.getDate());
+			}
+			return returnDate;
+		};
+				
 	}
 ]);
 

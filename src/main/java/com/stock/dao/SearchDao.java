@@ -1,10 +1,11 @@
 package com.stock.dao;
 
-import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import com.stock.entity.Activities;
@@ -67,20 +68,53 @@ public class SearchDao {
 	private String getSearchAssetsJql(SearchRequest request) {
 		StringBuffer hql = new StringBuffer("from Assets");
 		if (request != null) {
-			
+			hql.append(" where id !=null");
+			if (request.key != null&& !"".equals(request.key)) {
+				hql.append(" and (name like (:key)");
+				hql.append(" or model like (:key)");
+				hql.append(" or unit like (:key)");
+				hql.append(" or brand like (:key)");
+				hql.append(" or vendor like (:key)");
+				hql.append(" or requisitioners like (:key)");
+				hql.append(" or manager like (:key) )");
+			}
+			if (request.type != null) {
+				hql.append(" and type in (:type)");				
+			}
+			if (request.category != null) {
+				hql.append(" and category in (:category)");				
+			}
+			if (request.begin != null) {
+				hql.append(" and record_date >= :begin)");				
+			}
+			if (request.end != null) {
+				hql.append(" and record_date <= :end");				
+			}			
 		}
-//		public List<String> type;
-//		public List<String> category;
-//		public String key;
-//		public Date begin;
-//		public Date end;
-//		public int index;
 		return hql.toString();
 	}
 	
 	public List<Assets> searchAssets(SearchRequest request) {
-		String hql = getSearchAssetsJql(request); 
-		return entityManager.createQuery(hql, Assets.class).setFirstResult(request.index).setMaxResults(pageSize)
+		String hql = getSearchAssetsJql(request);
+		TypedQuery<Assets> query = entityManager.createQuery(hql, Assets.class);
+		if (request != null) {
+			if (request.key != null && !"".equals(request.key)) {
+				query.setParameter("key", "%" + request.key + "%");
+			}
+			if (request.type != null) {
+				query.setParameter("type", request.type);
+			}
+			if (request.category != null) {
+				query.setParameter("category", request.category);
+			}
+			if (request.begin != null) {
+				query.setParameter("begin", request.begin);				
+			}
+			if (request.end != null) {
+				query.setParameter("end", request.end);				
+			}			
+		}
+		return query.setFirstResult(request.index).setMaxResults(pageSize)
 				.getResultList();
 	}
 
@@ -155,7 +189,25 @@ public class SearchDao {
 	public int getAssetsCount(SearchRequest request) {
 		try {
 			String hql = "select count(*) " + getSearchAssetsJql(request); 
-			return entityManager.createQuery(hql, Long.class).getSingleResult().intValue();
+			TypedQuery<Long> query = entityManager.createQuery(hql, Long.class);
+			if (request != null) {
+				if (request.key != null&& !"".equals(request.key)) {
+					query.setParameter("key", "%" + request.key + "%");
+				}
+				if (request.type != null) {
+					query.setParameter("type", request.type);
+				}
+				if (request.category != null) {
+					query.setParameter("category", request.category);
+				}
+				if (request.begin != null) {
+					query.setParameter("begin", request.begin);				
+				}
+				if (request.end != null) {
+					query.setParameter("end", request.end);				
+				}			
+			}
+			return query.getSingleResult().intValue();
 		} catch (NoResultException e) {
 			return 0;
 		}

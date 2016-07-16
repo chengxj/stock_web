@@ -5,8 +5,8 @@ import java.util.List;
 
 public class SearchRequest {
 	
-	public List<String> type;
-	public List<String> category;
+	public List<Long> type;
+	public List<Long> category;
 	public String key;
 	public Date begin;
 	public Date end;
