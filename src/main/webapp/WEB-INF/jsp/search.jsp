@@ -283,7 +283,43 @@
 													<td ng-bind="asset.record_date"></td>
 													<td ng-bind="asset.requisitioners"></td>
 													<td ng-bind="asset.manager"></td>													
-												</tr>												
+												</tr>
+												<tr>
+												<td colSpan="11" align="center">
+													<table cellspacing="0" cellpadding="0" border="0" style="table-layout:auto;" class="ui-pg-table">
+														<tbody>
+															<tr>
+																<td id="first_grid-pager" class="ui-pg-button ui-corner-all">
+																	<span class="ui-icon ace-icon fa fa-angle-double-left bigger-140"></span>
+																</td>
+																<td id="prev_grid-pager" class="ui-pg-button ui-corner-all" style="cursor: default;">
+																	<span class="ui-icon ace-icon fa fa-angle-left bigger-140"></span>
+																</td>
+																<td class="ui-pg-button " style="width: 4px; cursor: default;">
+																	<span class="ui-separator"></span>
+																</td>
+
+																<!--td class="ui-pg-button ui-state-disabled" style="width: 4px; cursor: default;">
+																	<span class="ui-separator"></span>
+																</td-->
+																<td dir="ltr">第<span id="sp_1_grid-pager" ng-bind="pageNo"></span>页，总共<span id="sp_1_grid-pager" ng-bind="pageCount"></span>页
+																</td>
+																<td class="ui-pg-button ui-state-disabled" style="width: 4px; cursor: default;">
+																<span class="ui-separator"></span>
+																</td>
+																<td id="next_grid-pager" class="ui-pg-button ui-corner-all" style="cursor: default;">
+																<span class="ui-icon ace-icon fa fa-angle-right bigger-140"></span>
+																</td>
+																<td id="last_grid-pager" class="ui-pg-button ui-corner-all" style="cursor: default;">
+																<span class="ui-icon ace-icon fa fa-angle-double-right bigger-140"></span>
+																</td>
+																<td dir="ltr">
+																</td>
+															</tr>
+														</tbody>
+													</table>												
+												</td>
+												</tr>											
 											</tbody>
 										</table>
 																			
@@ -383,15 +419,19 @@ angular.module('app', ['ngResource'])
 			});
 		};
 		
-		$scope.searchAssets = function(index) {
-			$scope.query = {
-				"type": [],
-				"category": [],
-				"key": "",
-				"begin": "",
-				"end": "",
-				"index":0
-			};
+		$scope.pageNo = 0;
+		$scope.pageCount = 0;
+		$scope.pageSize = 10;
+		$scope.query = {
+			"type": [],
+			"category": [],
+			"key": "",
+			"begin": "",
+			"end": "",
+			"index":0
+		};
+		
+		$scope.searchAssets = function(index) {			
 			$scope.query['type'] = $("#types").val(); 
 			$scope.query['category'] = $("#categories").val();
 			$scope.query['key'] = $("#key").val();
@@ -400,7 +440,28 @@ angular.module('app', ['ngResource'])
 			$scope.query['index'] = index;
 			appDAO.searchAssets().save($scope.query, function(data) {
 				$scope.AssetsDTO = data;
+				$scope.pageCount = data.pageCount;
+				$scope.pageNo = data.pageNo + 1;
 			});
+		};
+		
+		$scope.next = function() {
+			
+			
+		};
+		
+		$scope.go = function() {
+			$scope.query['index'] = 0;
+			
+			
+		};
+		
+		$scope.first = function() {
+			$scope.searchAssets(0);
+		};
+		
+		$scope.last = function() {
+						
 		};
 		
 		$scope.getAllAssetsType = function() {

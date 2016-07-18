@@ -147,6 +147,7 @@ CREATE TABLE `assets_type` (
 -- ----------------------------
 INSERT INTO `assets_type` VALUES ('1', 'A', '设备', null, '');
 INSERT INTO `assets_type` VALUES ('2', 'B', '低值易耗品', null, '');
+INSERT INTO `assets_type` VALUES ('3', 'C', '元器件', null, '');
 
 -- ----------------------------
 -- Table structure for `log`

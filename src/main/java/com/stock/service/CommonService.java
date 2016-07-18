@@ -189,6 +189,9 @@ public class CommonService {
 		SearchDTO dto = new SearchDTO();
 		dto.count = searchDao.getAssetsCount(request);
 		dto.assets = searchDao.searchAssets(request);
+		PageUtil pageUtil = new PageUtil(dto.count);		
+		dto.pageCount = pageUtil.getPageSl();
+		dto.pageNo = PageUtil.getPageNo(pageUtil.getIPageLen(), request.index);
 		dto.success = true;
 		return dto;
 	}

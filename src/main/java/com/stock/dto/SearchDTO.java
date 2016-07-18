@@ -14,6 +14,8 @@ public class SearchDTO extends BaseDTO {
 	public boolean success;
 	public int index;
 	public int count;
+	public int pageNo;
+	public int pageCount;
 	public List<Assets> assets;
 
 }
