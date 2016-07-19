@@ -188,10 +188,19 @@ public class CommonService {
 	public SearchDTO searchAssets(SearchRequest request) {
 		SearchDTO dto = new SearchDTO();
 		dto.count = searchDao.getAssetsCount(request);
-		dto.assets = searchDao.searchAssets(request);
 		PageUtil pageUtil = new PageUtil(dto.count);		
 		dto.pageCount = pageUtil.getPageSl();
-		dto.pageNo = PageUtil.getPageNo(pageUtil.getIPageLen(), request.index);
+		if (request.pagination) {
+			pageUtil.setPageNo(request.way, request.oldNo);			
+		} else {
+			if ("0".equals(request.way)) {
+				pageUtil.setPageNo(0);
+			} else if ("n".equals(request.way)) {
+				pageUtil.setPageNo(pageUtil.getPageSl() - 1);				
+			}
+		}
+		dto.pageNo = pageUtil.getPageNo();
+		dto.assets = searchDao.searchAssets(request, pageUtil.getPageBegin() - 1, pageUtil.getIPageLen());
 		dto.success = true;
 		return dto;
 	}

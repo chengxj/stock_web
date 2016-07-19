@@ -10,6 +10,8 @@ public class SearchRequest {
 	public String key;
 	public Date begin;
 	public Date end;
-	public int index;
+	public String way;
+	public int oldNo;
+	public boolean pagination;
 
 }

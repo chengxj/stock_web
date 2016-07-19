@@ -94,7 +94,7 @@ public class SearchDao {
 		return hql.toString();
 	}
 	
-	public List<Assets> searchAssets(SearchRequest request) {
+	public List<Assets> searchAssets(SearchRequest request, int index, int pageSize) {
 		String hql = getSearchAssetsJql(request);
 		TypedQuery<Assets> query = entityManager.createQuery(hql, Assets.class);
 		if (request != null) {
@@ -114,7 +114,7 @@ public class SearchDao {
 				query.setParameter("end", request.end);				
 			}			
 		}
-		return query.setFirstResult(request.index).setMaxResults(pageSize)
+		return query.setFirstResult(index).setMaxResults(pageSize)
 				.getResultList();
 	}
 

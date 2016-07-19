@@ -225,7 +225,7 @@
 														&nbsp;分类：
 														<select id="categories" multiple="multiple" ></select>
 														&nbsp;关键字：<input type="text" id="key" placeholder="关键字 ..." style="width:200px;" class="nav-search-input" id="nav-search-input" autocomplete="off">
-														<button class="btn btn-sm btn-primary" style="margin-top:-4px;margin-left:5px;" ng-click="searchAssets(0)"> 查 询 </button>
+														<button class="btn btn-sm btn-primary" style="margin-top:-4px;margin-left:5px;" ng-click="searchAssets('1')"> 查 询 </button>
 														</span>
 													</form>
 													<form class="form-search" style="margin-top:5px;margin-bottom:45px;">
@@ -290,10 +290,10 @@
 														<tbody>
 															<tr>
 																<td id="first_grid-pager" class="ui-pg-button ui-corner-all">
-																	<span class="ui-icon ace-icon fa fa-angle-double-left bigger-140"></span>
+																	<span class="ui-icon ace-icon fa fa-angle-double-left bigger-140" ng-click="searchAssets('1')"></span>
 																</td>
 																<td id="prev_grid-pager" class="ui-pg-button ui-corner-all" style="cursor: default;">
-																	<span class="ui-icon ace-icon fa fa-angle-left bigger-140"></span>
+																	<span class="ui-icon ace-icon fa fa-angle-left bigger-140" ng-click="nextPage('-1')"></span>
 																</td>
 																<td class="ui-pg-button " style="width: 4px; cursor: default;">
 																	<span class="ui-separator"></span>
@@ -308,10 +308,10 @@
 																<span class="ui-separator"></span>
 																</td>
 																<td id="next_grid-pager" class="ui-pg-button ui-corner-all" style="cursor: default;">
-																<span class="ui-icon ace-icon fa fa-angle-right bigger-140"></span>
+																<span class="ui-icon ace-icon fa fa-angle-right bigger-140" ng-click="nextPage('+1')"></span>
 																</td>
 																<td id="last_grid-pager" class="ui-pg-button ui-corner-all" style="cursor: default;">
-																<span class="ui-icon ace-icon fa fa-angle-double-right bigger-140"></span>
+																<span class="ui-icon ace-icon fa fa-angle-double-right bigger-140" ng-click="searchAssets('n')"></span>
 																</td>
 																<td dir="ltr">
 																</td>
@@ -422,22 +422,27 @@ angular.module('app', ['ngResource'])
 		$scope.pageNo = 0;
 		$scope.pageCount = 0;
 		$scope.pageSize = 10;
+		
 		$scope.query = {
 			"type": [],
 			"category": [],
 			"key": "",
 			"begin": "",
 			"end": "",
-			"index":0
+			"way":"1",
+		    "oldNo":0,
+			"pagination":false
 		};
 		
-		$scope.searchAssets = function(index) {			
+		$scope.searchAssets = function(way) {	
 			$scope.query['type'] = $("#types").val(); 
 			$scope.query['category'] = $("#categories").val();
 			$scope.query['key'] = $("#key").val();
 			$scope.query['begin'] = $scope.getFormateDate($("#begin").val()); 
 			$scope.query['end'] = $scope.getFormateDate($("#end").val()); 
-			$scope.query['index'] = index;
+			$scope.query['way'] = way;
+			$scope.query['oldNo'] = 0;
+			$scope.query['pagination'] = false;
 			appDAO.searchAssets().save($scope.query, function(data) {
 				$scope.AssetsDTO = data;
 				$scope.pageCount = data.pageCount;
@@ -445,23 +450,15 @@ angular.module('app', ['ngResource'])
 			});
 		};
 		
-		$scope.next = function() {
-			
-			
-		};
-		
-		$scope.go = function() {
-			$scope.query['index'] = 0;
-			
-			
-		};
-		
-		$scope.first = function() {
-			$scope.searchAssets(0);
-		};
-		
-		$scope.last = function() {
-						
+		$scope.nextPage = function(way) {
+			$scope.query['way'] = way;
+			$scope.query['oldNo'] = angular.copy($scope.pageNo) - 1;
+			$scope.query['pagination'] = true;
+			appDAO.searchAssets().save($scope.query, function(data) {
+				$scope.AssetsDTO = data;
+				$scope.pageCount = data.pageCount;
+				$scope.pageNo = data.pageNo + 1;
+			});			
 		};
 		
 		$scope.getAllAssetsType = function() {
