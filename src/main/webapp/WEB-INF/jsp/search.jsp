@@ -402,23 +402,24 @@ angular.module('app', ['ngResource'])
 		getAllCategories:function() {
 			return $resource('/api/get_all_category.json');
 		},
-		getActivities:function() {
-			return $resource('/api/search_activities.json');
-		},
 		searchAssets:function() {
 			return $resource('/api/search_assets.json');
 		}
   	};	
 })
 .controller('appCtrl', ['$scope', 'appDAO', 
-	function($scope, appDAO) {	
-		
-		$scope.searchActivities = function(searchTerm, index) {
-			appDAO.getActivities().save({searchTerm:searchTerm, index:index}, function(data) {
-				$scope.data = data;
-			});
+	function($scope, appDAO) {
+	
+		$scope.getFormateDate = function(date){
+			var returnDate = null;
+			if (date != null) {
+				var formateDate = new Date(date);
+				returnDate = new Date(formateDate.getFullYear(), formateDate.getMonth(), formateDate.getDate());
+			}
+			return returnDate;
 		};
-		
+
+				
 		$scope.pageNo = 0;
 		$scope.pageCount = 0;
 		$scope.pageSize = 10;
@@ -473,19 +474,9 @@ angular.module('app', ['ngResource'])
 			});
 		};
 		
-		$scope.searchActivities(null, 0);
 		$scope.getAllCategories();
 		$scope.getAllAssetsType();
-		
-		$scope.getFormateDate = function(date){
-			var returnDate = null;
-			if (date != null) {
-				var formateDate = new Date(date);
-				returnDate = new Date(formateDate.getFullYear(), formateDate.getMonth(), formateDate.getDate());
-			}
-			return returnDate;
-		};
-				
+		$scope.searchAssets("1");				
 	}
 ]);
 

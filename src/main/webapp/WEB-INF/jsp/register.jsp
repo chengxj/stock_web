@@ -673,8 +673,8 @@
 					btn_change:'浏览',
 					droppable:false,
 					onchange:null,
-					thumbnail:false //| true | large
-					//whitelist:'gif|png|jpg|jpeg'
+					thumbnail:false, //| true | large
+					whitelist:'gif|png|jpg|jpeg'
 					//blacklist:'exe|php'
 					//onchange:''
 				});
