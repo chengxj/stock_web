@@ -1,22 +1,22 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost_3306
-Source Server Version : 50712
-Source Host           : localhost:3306
-Source Database       : stock
+Source Server         : localhost
+Source Server Version : 50546
+Source Host           : 127.0.0.1:3306
+Source Database       : stock_web
 
 Target Server Type    : MYSQL
-Target Server Version : 50712
+Target Server Version : 50546
 File Encoding         : 65001
 
-Date: 2016-05-22 23:41:15
+Date: 2016-07-20 23:57:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for `activities`
+-- Table structure for activities
 -- ----------------------------
 DROP TABLE IF EXISTS `activities`;
 CREATE TABLE `activities` (
@@ -49,7 +49,7 @@ INSERT INTO `activities` VALUES ('11', '东大高', 'CYCLING', '', '清河', '�
 INSERT INTO `activities` VALUES ('12', '花海', 'MOUNTAIN', '', '安慧桥', '珍珠泉', '黑猫', null, null);
 
 -- ----------------------------
--- Table structure for `assets`
+-- Table structure for assets
 -- ----------------------------
 DROP TABLE IF EXISTS `assets`;
 CREATE TABLE `assets` (
@@ -82,14 +82,28 @@ CREATE TABLE `assets` (
   `create_time` date NOT NULL,
   `update_time` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of assets
 -- ----------------------------
+INSERT INTO `assets` VALUES ('1', '1', '1', '1', '1', '1', '1', '1', '1', null, '1', '1', '1', '1', '以', '1', '1', '1', '1', '', '1', '1', '1', '', '2016-07-16', '', '2016-07-16', null);
+INSERT INTO `assets` VALUES ('2', '1', '1', '2', '2', '2', '2', '2', '2', null, '2', '22', '2', '2', '2', '2', '2', '2', '2', '', '2', '2', '2', '', '2016-07-19', '', '2016-07-19', null);
+INSERT INTO `assets` VALUES ('3', '1', '1', '2', '2', '2', '2', '2', '2', null, '2', '22', '2', '2', '2', '2', '2', '2', '2', '', '2', '2', '2', '', '2016-07-19', '', '2016-07-19', null);
+INSERT INTO `assets` VALUES ('4', '1', '1', '2', '2', '2', '2', '2', '2', null, '2', '22', '2', '2', '2', '2', '2', '2', '2', '', '2', '2', '2', '', '2016-07-19', '', '2016-07-19', null);
+INSERT INTO `assets` VALUES ('5', '1', '1', '2', '2', '2', '2', '2', '2', null, '2', '22', '2', '2', '2', '2', '2', '2', '2', '', '2', '2', '2', '', '2016-07-19', '', '2016-07-19', null);
+INSERT INTO `assets` VALUES ('6', '1', '1', '2', '2', '2', '2', '2', '2', null, '2', '22', '2', '2', '2', '2', '2', '2', '2', '', '2', '2', '2', '', '2016-07-19', '', '2016-07-19', null);
+INSERT INTO `assets` VALUES ('7', '1', '1', '2', '2', '2', '2', '2', '2', null, '2', '22', '2', '2', '2', '2', '2', '2', '2', '', '2', '2', '2', '', '2016-07-19', '', '2016-07-19', null);
+INSERT INTO `assets` VALUES ('8', '1', '1', '2', '2', '2', '2', '2', '2', null, '2', '22', '2', '2', '2', '2', '2', '2', '2', '', '2', '2', '2', '', '2016-07-19', '', '2016-07-19', null);
+INSERT INTO `assets` VALUES ('9', '1', '1', '2', '2', '2', '2', '2', '2', null, '2', '22', '2', '2', '2', '2', '2', '2', '2', '', '2', '2', '2', '', '2016-07-19', '', '2016-07-19', null);
+INSERT INTO `assets` VALUES ('10', '1', '1', '2', '2', '2', '2', '2', '2', null, '2', '22', '2', '2', '2', '2', '2', '2', '2', '', '2', '2', '2', '', '2016-07-19', '', '2016-07-19', null);
+INSERT INTO `assets` VALUES ('11', '1', '1', '2', '2', '2', '2', '2', '2', null, '2', '22', '2', '2', '2', '2', '2', '2', '2', '', '2', '2', '2', '', '2016-07-19', '', '2016-07-19', null);
+INSERT INTO `assets` VALUES ('12', '1', null, '', '', '', '', '', '', null, '0', '0', '0', '0', '', '', '', '', '', '', '', '', '', '', '2016-07-20', '', '2016-07-20', null);
+INSERT INTO `assets` VALUES ('13', '3', '1', '1a', '12', '1a', 'a', '1a', '1a', null, '1', '1', '1', '1', '1a', '1a', '1a', '1a', '1a', '1a', '1a', null, '1a', '', '2015-07-15', null, '2016-07-20', null);
+INSERT INTO `assets` VALUES ('14', '3', '1', '1a', '12', '1a', 'a', '1a', '1a', null, '1', '1', '1', '1', '1a', '1a', '1a', '1a', '1a', '1a', '1a', null, '1a', '', '2015-07-15', null, '2016-07-20', null);
 
 -- ----------------------------
--- Table structure for `assets_attachment`
+-- Table structure for assets_attachment
 -- ----------------------------
 DROP TABLE IF EXISTS `assets_attachment`;
 CREATE TABLE `assets_attachment` (
@@ -109,7 +123,7 @@ CREATE TABLE `assets_attachment` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `assets_category`
+-- Table structure for assets_category
 -- ----------------------------
 DROP TABLE IF EXISTS `assets_category`;
 CREATE TABLE `assets_category` (
@@ -124,13 +138,13 @@ CREATE TABLE `assets_category` (
 -- ----------------------------
 -- Records of assets_category
 -- ----------------------------
-INSERT INTO `assets_category` VALUES ('1', 'A', '探头', null, '');
-INSERT INTO `assets_category` VALUES ('2', 'B', '特殊仪器', null, '');
-INSERT INTO `assets_category` VALUES ('3', 'C', '示波器', null, '');
-INSERT INTO `assets_category` VALUES ('4', 'D', '检测仪器', null, '');
+INSERT INTO `assets_category` VALUES ('1', 'A', '探头', null, '\0');
+INSERT INTO `assets_category` VALUES ('2', 'B', '特殊仪器', null, '\0');
+INSERT INTO `assets_category` VALUES ('3', 'C', '示波器', null, '\0');
+INSERT INTO `assets_category` VALUES ('4', 'D', '检测仪器', null, '\0');
 
 -- ----------------------------
--- Table structure for `assets_type`
+-- Table structure for assets_type
 -- ----------------------------
 DROP TABLE IF EXISTS `assets_type`;
 CREATE TABLE `assets_type` (
@@ -140,17 +154,17 @@ CREATE TABLE `assets_type` (
   `description` longtext,
   `available` bit(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of assets_type
 -- ----------------------------
-INSERT INTO `assets_type` VALUES ('1', 'A', '设备', null, '');
-INSERT INTO `assets_type` VALUES ('2', 'B', '低值易耗品', null, '');
-INSERT INTO `assets_type` VALUES ('3', 'C', '元器件', null, '');
+INSERT INTO `assets_type` VALUES ('1', 'A', '设备', null, '\0');
+INSERT INTO `assets_type` VALUES ('2', 'B', '低值易耗品', null, '\0');
+INSERT INTO `assets_type` VALUES ('3', 'C', '电子元器件', null, '\0');
 
 -- ----------------------------
--- Table structure for `log`
+-- Table structure for log
 -- ----------------------------
 DROP TABLE IF EXISTS `log`;
 CREATE TABLE `log` (
@@ -168,7 +182,7 @@ CREATE TABLE `log` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `menu`
+-- Table structure for menu
 -- ----------------------------
 DROP TABLE IF EXISTS `menu`;
 CREATE TABLE `menu` (
@@ -188,7 +202,7 @@ CREATE TABLE `menu` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `permission`
+-- Table structure for permission
 -- ----------------------------
 DROP TABLE IF EXISTS `permission`;
 CREATE TABLE `permission` (
@@ -205,7 +219,7 @@ CREATE TABLE `permission` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `registration`
+-- Table structure for registration
 -- ----------------------------
 DROP TABLE IF EXISTS `registration`;
 CREATE TABLE `registration` (
@@ -234,7 +248,7 @@ INSERT INTO `registration` VALUES ('7', '1', '2', 'MAN', '2', '2', '2', '13213',
 INSERT INTO `registration` VALUES ('9', '1', '1231', 'MAN', '123', '123', '123', '132', '132', '132');
 
 -- ----------------------------
--- Table structure for `role`
+-- Table structure for role
 -- ----------------------------
 DROP TABLE IF EXISTS `role`;
 CREATE TABLE `role` (
@@ -249,11 +263,11 @@ CREATE TABLE `role` (
 -- ----------------------------
 -- Records of role
 -- ----------------------------
-INSERT INTO `role` VALUES ('1', 'normal', '1', '');
-INSERT INTO `role` VALUES ('2', 'add', '2', '');
+INSERT INTO `role` VALUES ('1', 'normal', '1', '\0');
+INSERT INTO `role` VALUES ('2', 'add', '2', '\0');
 
 -- ----------------------------
--- Table structure for `role_menu`
+-- Table structure for role_menu
 -- ----------------------------
 DROP TABLE IF EXISTS `role_menu`;
 CREATE TABLE `role_menu` (
@@ -267,7 +281,7 @@ CREATE TABLE `role_menu` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `role_permission`
+-- Table structure for role_permission
 -- ----------------------------
 DROP TABLE IF EXISTS `role_permission`;
 CREATE TABLE `role_permission` (
@@ -281,7 +295,7 @@ CREATE TABLE `role_permission` (
 -- ----------------------------
 
 -- ----------------------------
--- Table structure for `team`
+-- Table structure for team
 -- ----------------------------
 DROP TABLE IF EXISTS `team`;
 CREATE TABLE `team` (
@@ -296,11 +310,11 @@ CREATE TABLE `team` (
 -- ----------------------------
 -- Records of team
 -- ----------------------------
-INSERT INTO `team` VALUES ('1', '软件工程部', '0', null, '');
-INSERT INTO `team` VALUES ('2', '系统集成部', '0', null, '');
+INSERT INTO `team` VALUES ('1', '软件工程部', '0', null, '\0');
+INSERT INTO `team` VALUES ('2', '系统集成部', '0', null, '\0');
 
 -- ----------------------------
--- Table structure for `user`
+-- Table structure for user
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -320,7 +334,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` VALUES ('1', 'test', '测试', 'c4ca4238a0b923820dcc509a6f75849b', '123', '0');
 
 -- ----------------------------
--- Table structure for `user_role`
+-- Table structure for user_role
 -- ----------------------------
 DROP TABLE IF EXISTS `user_role`;
 CREATE TABLE `user_role` (
@@ -336,7 +350,7 @@ INSERT INTO `user_role` VALUES ('1', '1');
 INSERT INTO `user_role` VALUES ('1', '2');
 
 -- ----------------------------
--- Table structure for `user_team`
+-- Table structure for user_team
 -- ----------------------------
 DROP TABLE IF EXISTS `user_team`;
 CREATE TABLE `user_team` (

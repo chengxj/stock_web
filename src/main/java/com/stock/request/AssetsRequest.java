@@ -1,5 +1,7 @@
 package com.stock.request;
 
+import java.util.Date;
+
 public class AssetsRequest {
 	
 	public Long type;
@@ -10,8 +12,8 @@ public class AssetsRequest {
 	public String brand;
 	public String vendor;
 	public String factory_num;
-	public String factory_date;
-	public String record_date;
+	public Date factory_date;
+	public Date record_date;
 	public Long amount;
 	public Long cost;
 	public Long quantity;

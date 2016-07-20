@@ -412,7 +412,7 @@ angular.module('app', ['ngResource'])
 	
 		$scope.getFormateDate = function(date){
 			var returnDate = null;
-			if (date != null) {
+			if (date != null && date != "") {
 				var formateDate = new Date(date);
 				returnDate = new Date(formateDate.getFullYear(), formateDate.getMonth(), formateDate.getDate());
 			}

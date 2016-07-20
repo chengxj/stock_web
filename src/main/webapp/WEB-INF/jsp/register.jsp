@@ -313,22 +313,22 @@
 											<input type="text" id="form-field-8" ng-model="assets.factory_num" placeholder="出厂编号" class="col-xs-10 col-sm-12" />
 										</div>
 										
-										<label class="col-sm-1 control-label no-padding-right" for="id-date-picker-1"> 出厂日期 </label>
+										<label class="col-sm-1 control-label no-padding-right" for="factory_date"> 出厂日期 </label>
 
 										<div class="col-sm-3">
 											<div class="input-group">
-												<input class="form-control date-picker" id="id-date-picker-1" ng-model="assets.factory_date" type="text" data-date-format="yyyy-mm-dd">
+												<input class="form-control date-picker" id="factory_date" ng-model="assets.factory_date" type="text" data-date-format="yyyy-mm-dd">
 												<span class="input-group-addon">
 													<i class="fa fa-calendar bigger-110"></i>
 												</span>
 											</div>
 										</div>
 										
-										<label class="col-sm-1 control-label no-padding-right" for="id-date-picker-2"> 登记日期 </label>
+										<label class="col-sm-1 control-label no-padding-right" for="record_date"> 登记日期 </label>
 
 										<div class="col-sm-3">
 											<div class="input-group">
-												<input class="form-control date-picker" id="id-date-picker-2" type="text" ng-model="assets.record_date" data-date-format="yyyy-mm-dd">
+												<input class="form-control date-picker" id="record_date" type="text" ng-model="assets.record_date" data-date-format="yyyy-mm-dd">
 												<span class="input-group-addon">
 													<i class="fa fa-calendar bigger-110"></i>
 												</span>
@@ -388,7 +388,7 @@
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-61"> 领用人  </label>
 
 										<div class="col-sm-3">
-											<input type="text" id="form-field-61" ng-model="assets.manager" placeholder="领用人" class="col-xs-10 col-sm-12" />
+											<input type="text" id="form-field-61" ng-model="assets.recipients" placeholder="领用人" class="col-xs-10 col-sm-12" />
 										</div>
 										
 										<label class="col-sm-1 control-label no-padding-right" for="form-field-62"> 保管人 </label>
@@ -467,16 +467,15 @@
 												</div>
 
 												<div id="messages" class="tab-pane fade">
-													<input type="file" id="id-input-file-2">
-													<div class="clearfix form-actions">
+													<input type="file" id="id-input-file-2" ng-file-select="onFileSelect($files)" />
+									<!--div class="clearfix form-actions">
 										<div class="col-md-offset-0 col-md-1">
 											<button class="btn btn-info" type="button">
 												<i class="ace-icon fa fa-check bigger-110"></i>
 												导入
 											</button>
-
 										</div>
-									</div>
+									</div-->
 												</div>
 											</div>
 										</div>
@@ -673,16 +672,16 @@
 					btn_change:'浏览',
 					droppable:false,
 					onchange:null,
-					thumbnail:false, //| true | large
-					whitelist:'gif|png|jpg|jpeg'
+					thumbnail:false
 					//blacklist:'exe|php'
-					//onchange:''
+				}).on('change', function(){					
+					
 				});
 			
 				$('#id-input-file-3').ace_file_input({
 					style:'well',
 					btn_choose:'拖拽文件到这或是点击选择',
-					btn_change:null,
+					btn_change: null,
 					no_icon:'ace-icon fa fa-cloud-upload',
 					droppable:true,
 					thumbnail:'small',
@@ -691,6 +690,8 @@
 					}
 			
 				}).on('change', function(){
+					
+					
 				});
 				
 				//dynamically change allowed formats by changing allowExt && allowMime function
@@ -755,7 +756,7 @@
 					return year + "-" + (month<10?"0" + month:month) + "-" + (day<10?"0" + day:day);
 				}
 				
-				$('#id-date-picker-2').datepicker('update', new Date());
+				$('#record_date').datepicker('update', new Date());
 			
 				//or change it into a date range picker
 				$('.input-daterange').datepicker({autoclose:true});
@@ -902,9 +903,11 @@
 		<script src="../docs/assets/js/language/html.js"></script>
 		<script src="../docs/assets/js/language/css.js"></script>
 		<script src="../docs/assets/js/language/javascript.js"></script>
+		<script type="text/javascript" src="../assets/js/angular-file-upload.min.js"></script>
+		<script type="text/javascript" src="../assets/js/angular-file-upload-shim.min.js"></script>
 <script>
-angular.module('app', ['ngResource'])
-.factory('appDAO', function($resource) {
+angular.module('app', ['ngResource', 'angularFileUpload'])
+.factory('appDAO', ['$resource', '$upload', function($resource, $upload) {
 	return {
 		getAllAssetsType:function() {
 			return $resource('/api/get_all_assets_type.json');
@@ -914,12 +917,24 @@ angular.module('app', ['ngResource'])
 		},
 		createAssets: function() {
 			return $resource('/api/create_assets.json');
+		},
+		uploadFile:function(file) {
+			return $upload.upload({url: '/api/import.json', method: 'POST', data: null, file: file});
 		}
 	};	
-})
-.controller('appCtrl', ['$scope', 'appDAO', 
+}])
+.controller('appCtrl', ['$scope', 'appDAO',
 	function($scope, appDAO) {
 	
+		$scope.getFormateDate = function(date){
+			var returnDate = null;
+			if (date != null && date != "") {
+				var formateDate = new Date(date);
+				returnDate = new Date(formateDate.getFullYear(), formateDate.getMonth(), formateDate.getDate());
+			}
+			return returnDate;
+		};
+		
 		$scope.assets = {
 			"type":1,
 			"category":null,
@@ -929,8 +944,8 @@ angular.module('app', ['ngResource'])
 			"brand":"",
 			"vendor":"",
 			"factory_num":"",
-			"factory_date":"",
-			"record_date":"",
+			"factory_date": null,
+			"record_date": null,
 			"amount":0,
 			"cost":0,
 			"quantity":0,
@@ -957,14 +972,25 @@ angular.module('app', ['ngResource'])
 				$scope.AssetsCategories = data.AssetsCategories;
 			});
 		};
-		
-		$scope.saveAssets = function() {			
+				
+		$scope.saveAssets = function() {	
+			$scope.assets.factory_date = $scope.getFormateDate($("#factory_date").val());
+			$scope.assets.record_date = $scope.getFormateDate($("#record_date").val());			
 			appDAO.createAssets().save($scope.assets, function(data){
 				if (data.success) {
-					location.href = "/stock/register";
+					location.href = "/stock/search";
 				}
 			});
 		};
+		
+		$scope.onFileSelect = function($files) {
+        	for (var i = 0; i < $files.length; i++) {
+        		var file = $files[i];
+        		appDAO.uploadFile(file).progress(function(evt){}).success(function(data, status, headers, config) {
+                	
+            	});
+          	}
+        };
 		
 		$scope.cancelAssets = function() {
 			location.href = "/stock/register";

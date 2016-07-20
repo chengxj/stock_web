@@ -1,16 +1,28 @@
 package com.stock.service;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Date;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.stock.dao.CommonDao;
 import com.stock.dao.SearchDao;
 import com.stock.dto.ActivitiesDTO;
 import com.stock.dto.AssetsCategoryDTO;
 import com.stock.dto.AssetsDTO;
 import com.stock.dto.AssetsTypeDTO;
+import com.stock.dto.ImportDTO;
 import com.stock.dto.InStockDTO;
 import com.stock.dto.OrderDTO;
 import com.stock.dto.RegistrationDTO;
@@ -137,7 +149,7 @@ public class CommonService {
 		obj.setModel(request.model);
 		obj.setVendor(request.vendor);
 		obj.setFactory_num(request.factory_num);
-		obj.setFactory_date(null);
+		obj.setFactory_date(request.factory_date);
 		obj.setAmount(request.amount);
 		obj.setCost(request.cost);
 		obj.setQuantity(request.quantity);
@@ -152,7 +164,7 @@ public class CommonService {
 		obj.setCustodian(request.custodian);
 		obj.setDescription(request.description);
 		obj.setAvailable(request.available);
-		obj.setRecord_date(new Date());
+		obj.setRecord_date(request.record_date);
 		obj.setCreate_user("");
 		obj.setCreate_time(new Date());		
 		commonDao.saveDBOject(obj);
@@ -204,5 +216,138 @@ public class CommonService {
 		dto.success = true;
 		return dto;
 	}
+	
+	public String getStringCellVal(Row row, int index) {
+		String val = null;
+		Cell cell = row.getCell(index);
+		if (cell != null) {
+			try {
+				val = cell.getStringCellValue();
+			} catch (Exception e) {
+				val = null;
+			}
+		}		
+		return val;
+	}
+	
+	public Date getDateCellVal(Row row, int index) {
+		Date val = null;
+		Cell cell = row.getCell(index);
+		if (cell != null) {
+			try {
+				val = cell.getDateCellValue();
+			} catch (Exception e) {
+				val = null;
+			}
+		}
+		return val;
+	}
+	
+	public Long getLongCellVal(Row row, int index) {
+		Long val = 0L;
+		Cell cell = row.getCell(index);
+		if (cell != null) {
+			try {
+				Double doubleVal = cell.getNumericCellValue();
+				if (doubleVal != null) {
+					val = doubleVal.longValue();					
+				}
+			} catch (Exception e) {
+				val = 0L;
+			}
+		}
+		return val;
+	}
 
+	
+	
+	public ImportDTO importAssets(MultipartFile file) {
+		ImportDTO dto = new ImportDTO();
+		InputStream is = null;
+		try {
+			is = file.getInputStream();
+			Workbook wb = WorkbookFactory.create(is);
+			Sheet sheet = wb.getSheetAt(0);
+			int rowCount = sheet.getLastRowNum();
+			for (int i = 1; i <= rowCount; i++) {
+				Row row = sheet.getRow(i);
+				Assets obj = new Assets();
+				if (row != null) {
+					obj.setRecord_date(getDateCellVal(row, 1));
+					obj.setNum(getStringCellVal(row, 2));
+					String type = row.getCell(3).getStringCellValue();
+					obj.setType(getTypeVal(type));
+					String category = row.getCell(4).getStringCellValue();
+					obj.setCategory(getCategoryVal(category));
+					obj.setName(getStringCellVal(row, 5));
+					obj.setModel(getStringCellVal(row, 6));
+					obj.setUnit(getStringCellVal(row, 7));
+					obj.setStock_quantity(getLongCellVal(row, 8));
+					obj.setQuantity(getLongCellVal(row, 9));
+					obj.setCost(getLongCellVal(row, 10));
+					obj.setAmount(getLongCellVal(row, 11));
+					obj.setBrand(getStringCellVal(row, 12));
+					obj.setVendor(getStringCellVal(row, 13));
+					obj.setFactory_num(getStringCellVal(row, 14));					
+					obj.setRequisitioners(getStringCellVal(row, 15));
+					obj.setManager(getStringCellVal(row, 16));
+					obj.setRecipients(getStringCellVal(row, 17));
+					obj.setPlatform(getStringCellVal(row, 18));
+					obj.setPerformance_indices(getStringCellVal(row, 19));
+					obj.setAdditional_product(getStringCellVal(row, 20));
+					obj.setDescription(getStringCellVal(row, 21));	
+					obj.setCreate_time(new Date());	
+					obj.setAvailable(true);
+					commonDao.saveDBOject(obj);
+				}
+			}
+			dto.success = true;
+		} catch (IOException e) {
+			dto.success = false;
+			dto.msg = e.getMessage();
+			e.printStackTrace();
+		} catch (InvalidFormatException e) {
+			dto.success = false;
+			dto.msg = e.getMessage();
+			e.printStackTrace();
+		} finally {
+			if (is != null) {
+				try {
+					is.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				is = null;
+			}			
+		}
+		return dto;
+	}
+	
+	public Long getTypeVal(String type) {
+		Long val = 1L;
+		if ("设备".equals(type)) {
+			val = 1L;
+		} else if ("低值易耗品".equals(type)) {
+			val = 2L;
+		} else if ("电子元器件".equals(type)) {
+			val = 3L;
+		}
+		return val;
+	}
+	
+	public Long getCategoryVal(String category) {
+		Long val = 1L;
+		if ("探头".equals(category)) {
+			val = 1L;
+		} else if ("特殊仪器".equals(category)) {
+			val = 2L;
+		} else if ("示波器".equals(category)) {
+			val = 3L;
+		} else if ("检测 仪器".equals(category)) {
+			val = 4L;
+		}
+		return val;
+	}
+	
+	
 }
